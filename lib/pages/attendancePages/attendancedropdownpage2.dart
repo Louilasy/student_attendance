@@ -12,7 +12,7 @@ class AttendenceDropdownpage2 extends StatefulWidget {
 }
 
 class _AttendenceDropdownpage2State extends State<AttendenceDropdownpage2> {
-       DateTime selectedDate = DateTime.now();
+  DateTime selectedDate = DateTime.now();
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -59,26 +59,37 @@ class _AttendenceDropdownpage2State extends State<AttendenceDropdownpage2> {
               SizedBox(
                 height: 20,
               ),
-              dropdown( DropdownValue :semesterdropdownValue, sTring: Semester,Hint :"Semester"),
+              dropdown(
+                  dropdownValue: semesterdropdownValue,
+                  sTring: Semester,
+                  hint: "Semester"),
               SizedBox(
                 height: 20,
               ),
-              dropdown( DropdownValue :batchdropdownValue, sTring: Batch,Hint: "Batch"),
+              dropdown(
+                  dropdownValue: batchdropdownValue,
+                  sTring: Batch,
+                  hint: "Batch"),
               SizedBox(
                 height: 20,
               ),
-              dropdown( DropdownValue :subjectdropdownValue, sTring:Subject,Hint: "Subject"),
+              dropdown(
+                  dropdownValue: subjectdropdownValue,
+                  sTring: Subject,
+                  hint: "Subject"),
               SizedBox(
                 height: 30,
               ),
               // Text("${selectedDate.toLocal()}".split(' ')[0]),
-                // SizedBox(height: 20.0,),
-                // ignore: deprecated_member_use
-                RaisedButton(
-                  color: Colors.red,
-                  onPressed: () => _selectDate(context),
-                  child: Text('Select date',style: TextStyle(color: Colors.white),),
+              // SizedBox(height: 20.0,),
+              MaterialButton(
+                color: Colors.red,
+                onPressed: () => _selectDate(context),
+                child: Text(
+                  'Select date',
+                  style: TextStyle(color: Colors.white),
                 ),
+              ),
               // Row(children: [
               //   SizedBox(
               //     width: 30,
@@ -119,7 +130,7 @@ class _AttendenceDropdownpage2State extends State<AttendenceDropdownpage2> {
               //         onChanged: (_) {},
               //       ),
               //     ),
-                
+
               //   SizedBox(
               //     width: 30,
               //   ),
@@ -158,7 +169,7 @@ class _AttendenceDropdownpage2State extends State<AttendenceDropdownpage2> {
               //         }).toList(),
               //         onChanged: (_) {},
               //       ),
-                  
+
               //   ),
               //   SizedBox(
               //     width: 30,
@@ -199,44 +210,54 @@ class _AttendenceDropdownpage2State extends State<AttendenceDropdownpage2> {
               //         onChanged: (_) {},
               //       ),
               //     ),
-                
+
               // ]),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               Center(
                 child: Container(
                   // height: 300,
                   width: 350,
-                   padding: EdgeInsets.symmetric(horizontal: 10.0),
-                    decoration: BoxDecoration(
-                        color: Colors.grey[100],
-                        borderRadius: BorderRadius.circular(15.0),
-                        border: Border.all(
-                            color: Colors.grey,
-                            style: BorderStyle.solid,
-                            width: 0.80),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey,
-                            offset: const Offset(
-                              5.0,
-                              5.0,
-                            ),
-                            blurRadius: 10.0,
-                            spreadRadius: 2.0,
+                  padding: EdgeInsets.symmetric(horizontal: 10.0),
+                  decoration: BoxDecoration(
+                      color: Colors.grey[100],
+                      borderRadius: BorderRadius.circular(15.0),
+                      border: Border.all(
+                          color: Colors.grey,
+                          style: BorderStyle.solid,
+                          width: 0.80),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          offset: const Offset(
+                            5.0,
+                            5.0,
                           ),
-                        ]),
+                          blurRadius: 10.0,
+                          spreadRadius: 2.0,
+                        ),
+                      ]),
                   child: Center(
                     child: Column(
                       children: [
-                        SizedBox(height: 10,),
+                        SizedBox(
+                          height: 10,
+                        ),
                         // Text("Time",style: TextStyle(fontSize: 30),),
-                        Text("${selectedDate.toLocal()}".split(' ')[0],style: TextStyle(fontSize: 30),),
+                        Text(
+                          "${selectedDate.toLocal()}".split(' ')[0],
+                          style: TextStyle(fontSize: 30),
+                        ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
                             children: [
-                              Expanded(child: Text("Program : $programdropdownValue")),
-                              Expanded(child: Text("Branch : $branchdropdownValue")),
+                              Expanded(
+                                  child:
+                                      Text("Program : $programdropdownValue")),
+                              Expanded(
+                                  child: Text("Branch : $branchdropdownValue")),
                             ],
                           ),
                         ),
@@ -244,8 +265,11 @@ class _AttendenceDropdownpage2State extends State<AttendenceDropdownpage2> {
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
                             children: [
-                              Expanded(child: Text("Year : $yeardropdownValue")),
-                              Expanded(child: Text("Semester : $semesterdropdownValue"))
+                              Expanded(
+                                  child: Text("Year : $yeardropdownValue")),
+                              Expanded(
+                                  child:
+                                      Text("Semester : $semesterdropdownValue"))
                             ],
                           ),
                         ),
@@ -253,8 +277,14 @@ class _AttendenceDropdownpage2State extends State<AttendenceDropdownpage2> {
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
                             children: [
-                              Center(child: Expanded(child: Text("Batch : $batchdropdownValue"))),
-                              Center(child: Expanded(child: Text("Subject : $subjectdropdownValue")))
+                              Center(
+                                  child: Expanded(
+                                      child:
+                                          Text("Batch : $batchdropdownValue"))),
+                              Center(
+                                  child: Expanded(
+                                      child: Text(
+                                          "Subject : $subjectdropdownValue")))
                             ],
                           ),
                         ),
@@ -267,7 +297,8 @@ class _AttendenceDropdownpage2State extends State<AttendenceDropdownpage2> {
                                     onPressed: () {
                                       Navigator.of(context).push(
                                         MaterialPageRoute(
-                                            builder: (context) => AttendencePage()),
+                                            builder: (context) =>
+                                                AttendencePage()),
                                       );
                                     },
                                     child: Text("Take Attendence")),

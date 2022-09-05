@@ -1,5 +1,5 @@
 import 'package:student_attendance/model/userDetailModel.dart';
-import 'package:student_attendance/pages/addpages/add_faculty.dart';
+import 'package:student_attendance/pages/addPages/add_faculty.dart';
 import 'package:student_attendance/widgets/profilePhotoWidget.dart';
 import 'package:student_attendance/utils/names.dart';
 import 'package:student_attendance/utils/userPrefrences.dart';
@@ -35,9 +35,9 @@ class _FacultyPageState extends State<FacultyPage> {
             // ),
             Expanded(
               child: new ListView.builder(
-                  itemCount: 
-                  // Faculties.length,
-                  user.length,
+                  itemCount:
+                      // Faculties.length,
+                      user.length,
                   itemBuilder: (BuildContext context, int index) =>
                       buildFacultyCard(context, index)),
             )
@@ -112,13 +112,13 @@ class _FacultyPageState extends State<FacultyPage> {
               //   ),
               // ),
               Switch(
-                  value: isActive[index],
-                  onChanged: (bool newValue) {
-                    setState(() {
-                      isActive[index] = !isActive[index];
-                    });
-                  },
-                ),
+                value: isActive[index],
+                onChanged: (bool newValue) {
+                  setState(() {
+                    isActive[index] = !isActive[index];
+                  });
+                },
+              ),
               SizedBox(
                 width: 10,
               ),
@@ -128,5 +128,4 @@ class _FacultyPageState extends State<FacultyPage> {
       ),
     );
   }
-
 }

@@ -16,12 +16,7 @@ List<String> Semester = [
   "7",
   "8",
 ];
-List<String> Batch = [
-  "B1",
-  "B2",
-  "B3",
-  "B1 & B2"
-];
+List<String> Batch = ["B1", "B2", "B3", "B1 & B2"];
 List<String> Branch = [
   "C.S.I.T",
   "Mecha",
@@ -31,7 +26,7 @@ List<String> Subject = [
   "TOC",
   "CCS",
   "Machine Learning"
-  ];
+];
 List<String> Students = [
   "Aardhya",
   "Aashiv",
@@ -123,9 +118,7 @@ List<String> StudentEmail = [
   "2019btcs018@student.suas.ac.in",
   "2019btcs019@student.suas.ac.in"
 ];
-List<String> FacultyDOB = [
-  "11/11/99"
-];
+List<String> FacultyDOB = ["11/11/99"];
 List<String> FacultiesID = [
   "Facultybtcs001",
 ];
@@ -171,22 +164,22 @@ List<bool> FacultiesisActive = [
   true,
 ];
 List<String> Faculties = [
-  "Ashish bansal",
+  // "Ashish bansal",
   "Neha Gupta",
   "Ashish bansal",
   "Manish Khule",
-  "Ashish bansal",
-  "Neha Gupta",
-  "Ashish bansal",
-  "Manish Khule",
-  "Ashish bansal",
-  "Neha Gupta",
-  "Ashish bansal",
-  "Manish Khule",
-  "Ashish bansal",
-  "Neha Gupta",
-  "Ashish bansal",
-  "Manish Khule",
+  // "Ashish bansal",
+  // "Neha Gupta",
+  // "Ashish bansal",
+  // "Manish Khule",
+  // "Ashish bansal",
+  // "Neha Gupta",
+  // "Ashish bansal",
+  // "Manish Khule",
+  // "Ashish bansal",
+  // "Neha Gupta",
+  // "Ashish bansal",
+  // "Manish Khule",
 ];
 List<int> isSelectedList = [
   0,
@@ -228,22 +221,22 @@ List attendencecolor = [
   Colors.white,
   Colors.white,
 ];
-  //  0, /*Absent*/    1, /*Present*/    2 /*Absent*/
-    String semesterdropdownValue = Semester[0];
-    String batchdropdownValue = Batch[0];
-    String schooldropdownValue = School[0];
-    String subjectdropdownValue = Subject[0];
-    String yeardropdownValue = CollegeYear[0];
-    String programdropdownValue = Program[0];
-    String branchdropdownValue = Branch[0];
-    String facultiesdropdownValue = Faculties[0];   
-    Map<String,String> values = {
-      programdropdownValue:"MBA",
-      semesterdropdownValue:"1",
-      batchdropdownValue:"B1",
-      schooldropdownValue:"SCSIT",
-      subjectdropdownValue:"Artificial Intelegence",
-      yeardropdownValue:"3rd",
-      branchdropdownValue:"Mecha",
-      facultiesdropdownValue:"Neha Gupta",
-    };
+//  0, /*Absent*/    1, /*Present*/    2 /*Absent*/
+String semesterdropdownValue = Semester[0];
+String batchdropdownValue = Batch[0];
+String schooldropdownValue = School[0];
+String subjectdropdownValue = Subject[0];
+String yeardropdownValue = CollegeYear[0];
+String programdropdownValue = Program[0];
+String branchdropdownValue = Branch[0];
+String facultiesdropdownValue = Faculties[0];
+Map<String, String> values = {
+  programdropdownValue: "MBA",
+  semesterdropdownValue: "1",
+  batchdropdownValue: "B1",
+  schooldropdownValue: "SCSIT",
+  subjectdropdownValue: "Artificial Intelegence",
+  yeardropdownValue: "3rd",
+  branchdropdownValue: "Mecha",
+  facultiesdropdownValue: "Neha Gupta",
+};

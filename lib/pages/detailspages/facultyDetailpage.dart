@@ -1,5 +1,5 @@
 import 'package:student_attendance/model/userDetailModel.dart';
-import 'package:student_attendance/pages/addpages/add_faculty.dart';
+import 'package:student_attendance/pages/addPages/add_faculty.dart';
 import 'package:student_attendance/pages/editpages/edit_faculty.dart';
 import 'package:student_attendance/utils/names.dart';
 import 'package:student_attendance/utils/userPrefrences.dart';
@@ -13,7 +13,7 @@ class FacultyDetailsPage extends StatefulWidget {
 }
 
 class _FacultyDetailsPageState extends State<FacultyDetailsPage> {
-    final List<Faculty> user = UserPrefrences.FacultyList;
+  final List<Faculty> user = UserPrefrences.FacultyList;
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +85,9 @@ class _FacultyDetailsPageState extends State<FacultyDetailsPage> {
                       ),
                       Row(
                         children: [
-                          SizedBox(width: 25,),
+                          SizedBox(
+                            width: 25,
+                          ),
                           Expanded(
                             child: Text(
                               user[0].phoneNo,
@@ -93,7 +95,7 @@ class _FacultyDetailsPageState extends State<FacultyDetailsPage> {
                                   TextStyle(color: Colors.grey, fontSize: 17.0),
                             ),
                           ),
-//?????????????????????????????????????????????????????????????????????????????????????????????????                       
+//?????????????????????????????????????????????????????????????????????????????????????????????????
                           Expanded(
                             child: Text(
                               "Sem : " + Semester[0],
@@ -114,14 +116,14 @@ class _FacultyDetailsPageState extends State<FacultyDetailsPage> {
                     children: [
                       Text("Status"),
                       Switch(
-                          value: user[index].isActive,
-                          onChanged: (bool newValue) {
-                            setState(() {
-                              user[index].isActive = !user[index].isActive;
-                            });
-                          },
-                        ),
-                                              ElevatedButton(
+                        value: user[index].isActive,
+                        onChanged: (bool newValue) {
+                          setState(() {
+                            user[index].isActive = !user[index].isActive;
+                          });
+                        },
+                      ),
+                      ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
@@ -149,5 +151,4 @@ class _FacultyDetailsPageState extends State<FacultyDetailsPage> {
       ),
     );
   }
-
 }

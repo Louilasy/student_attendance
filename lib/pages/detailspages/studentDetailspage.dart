@@ -1,4 +1,4 @@
-import 'package:student_attendance/pages/addpages/add_student.dart';
+import 'package:student_attendance/pages/addPages/add_student.dart';
 import 'package:student_attendance/pages/editpages/edit_student.dart';
 import 'package:student_attendance/utils/names.dart';
 import 'package:student_attendance/utils/userPrefrences.dart';
@@ -12,7 +12,7 @@ class StudentDetailsPage extends StatefulWidget {
 }
 
 class _StudentDetailsPageState extends State<StudentDetailsPage> {
-    final studentvar = UserPrefrences.studentlist;
+  final studentvar = UserPrefrences.studentlist;
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +27,8 @@ class _StudentDetailsPageState extends State<StudentDetailsPage> {
         padding: const EdgeInsets.all(8.0),
         child: new ListView.builder(
             itemCount:
-            // 150, 
-            studentvar.length,
+                // 150,
+                studentvar.length,
             itemBuilder: (BuildContext context, int index) =>
                 buildStudentDetailsCard(context, index)),
       ),
@@ -37,9 +37,10 @@ class _StudentDetailsPageState extends State<StudentDetailsPage> {
         padding: const EdgeInsets.only(right: 150),
         child: FloatingActionButton.extended(
           onPressed: () {
-   Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => AddStud()),);
-                },
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => AddStud()),
+            );
+          },
           elevation: 15,
           label: Padding(
             padding: const EdgeInsets.only(left: 10, right: 10),
@@ -56,7 +57,7 @@ class _StudentDetailsPageState extends State<StudentDetailsPage> {
   }
 
   buildStudentDetailsCard(BuildContext context, int index) {
-    var index2 = index+1;
+    var index2 = index + 1;
     List<bool> isActive = StudentisActive;
     return new Container(
       child: Card(
@@ -79,8 +80,8 @@ class _StudentDetailsPageState extends State<StudentDetailsPage> {
                     child: Column(
                       children: <Widget>[
                         Text(
-                        studentvar[index].studentEnrollmentNo,
-                        // Enrollment[index],
+                          studentvar[index].studentEnrollmentNo,
+                          // Enrollment[index],
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20.0),
                         ),
@@ -114,13 +115,13 @@ class _StudentDetailsPageState extends State<StudentDetailsPage> {
                     children: [
                       Text("Status"),
                       Switch(
-                  value: isActive[index],
-                  onChanged: (bool newValue) {
-                    setState(() {
-                      isActive[index] = !isActive[index];
-                    });
-                  },
-                ),
+                        value: isActive[index],
+                        onChanged: (bool newValue) {
+                          setState(() {
+                            isActive[index] = !isActive[index];
+                          });
+                        },
+                      ),
                     ],
                   ),
                 ],
@@ -133,23 +134,38 @@ class _StudentDetailsPageState extends State<StudentDetailsPage> {
                   Expanded(
                     child: Column(
                       children: [
-                        Text("Program : " + studentvar[index].program,style: TextStyle(fontSize: 13),),
-                        Text("Batch : " + studentvar[index].batch,style: TextStyle(fontSize: 13),)
+                        Text(
+                          "Program : " + studentvar[index].program,
+                          style: TextStyle(fontSize: 13),
+                        ),
+                        Text(
+                          "Batch : " + studentvar[index].batch,
+                          style: TextStyle(fontSize: 13),
+                        )
                       ],
                     ),
                   ),
                   Expanded(
                     child: Column(
                       children: [
-                        Text("Branch : " + studentvar[index].branch,style: TextStyle(fontSize: 13),),
-                        Text("Semester : " + studentvar[index].semester,style: TextStyle(fontSize: 13),)
+                        Text(
+                          "Branch : " + studentvar[index].branch,
+                          style: TextStyle(fontSize: 13),
+                        ),
+                        Text(
+                          "Semester : " + studentvar[index].semester,
+                          style: TextStyle(fontSize: 13),
+                        )
                       ],
                     ),
                   ),
                   Expanded(
                     child: Column(
                       children: [
-                        Text("Year : " + studentvar[index].studingInYear,style: TextStyle(fontSize: 13),),
+                        Text(
+                          "Year : " + studentvar[index].studingInYear,
+                          style: TextStyle(fontSize: 13),
+                        ),
                       ],
                     ),
                   ),
@@ -160,9 +176,9 @@ class _StudentDetailsPageState extends State<StudentDetailsPage> {
               ),
               ElevatedButton(
                 onPressed: () {
-                     Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => EditStud()),
-                     );
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => EditStud()),
+                  );
                 },
                 child: Text("Edit"),
                 style: ElevatedButton.styleFrom(
@@ -181,6 +197,4 @@ class _StudentDetailsPageState extends State<StudentDetailsPage> {
       ),
     );
   }
-
- 
 }

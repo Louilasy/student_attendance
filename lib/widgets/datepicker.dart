@@ -25,8 +25,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   DateTime selectedDate = DateTime.now();
-    final user = UserPrefrences;
-
+  final user = UserPrefrences;
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -51,9 +50,10 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Text("${selectedDate.toLocal()}".split(' ')[0]),
-            SizedBox(height: 20.0,),
-            // ignore: deprecated_member_use
-            RaisedButton(
+            SizedBox(
+              height: 20.0,
+            ),
+            MaterialButton(
               onPressed: () => _selectDate(context),
               child: Text('Select date'),
             ),

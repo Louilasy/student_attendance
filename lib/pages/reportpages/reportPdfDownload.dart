@@ -15,7 +15,9 @@ class _ReportPdfDownloadPageState extends State<ReportPdfDownloadPage> {
       body: Column(
         // mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          SizedBox(height: 50,),
+          SizedBox(
+            height: 50,
+          ),
           Center(
             child: Text(
               'REPORT',
@@ -29,9 +31,7 @@ class _ReportPdfDownloadPageState extends State<ReportPdfDownloadPage> {
               child: Image.asset('assets/PdfDownload.png'),
             ),
           ),
-          SizedBox(
-            height: 50,
-          ),
+          SizedBox(height: 50),
           Center(
             child: TextButton.icon(
               onPressed: () {},

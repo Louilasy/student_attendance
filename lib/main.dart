@@ -1,5 +1,3 @@
-import 'package:student_attendance/pages/addpages/add_faculty.dart';
-import 'package:student_attendance/pages/addpages/add_student.dart';
 import 'package:student_attendance/pages/loginpages/logout.dart';
 import 'package:student_attendance/pages/profilepages/adminPage.dart';
 import 'package:student_attendance/pages/reportpages/adminreport.dart';
@@ -38,29 +36,27 @@ class myApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Student Attendance',
       theme: themeData,
-      home:
-          LoginPage(),
-          // Logout(),
-          // LoginNavScreen(),
-          // AttendenceDropdownPage1(),
-            // AttendenceDropdownpage2(),
-          // AttendencePage(),
-          // ProfilePage(),
-          // EditProfilePage(),
-          // ChangePassword(),
-          // ReportGenration(),
-          // ReportPdfDownloadPage(),
-          // AdminPage(),
-          // AdminReport(), 
-          // StudentDetailsPage(),
-          // FacultyPage(),
-          // FacultyDetailsPage(),
-          // AddStud(),
-          // EditStud(),
-          // AddFaculty(),
-          // EditFaculty(),
-          // MyHomePage(title: 'Flutter Demo Home Page'),
-
+      home: LoginPage(),
+      // Logout(),
+      // LoginNavScreen(),
+      // AttendenceDropdownPage1(),
+      // AttendenceDropdownpage2(),
+      // AttendencePage(),
+      // ProfilePage(),
+      // EditProfilePage(),
+      // ChangePassword(),
+      // ReportGenration(),
+      // ReportPdfDownloadPage(),
+      // AdminPage(),
+      // AdminReport(),
+      // StudentDetailsPage(),
+      // FacultyPage(),
+      // FacultyDetailsPage(),
+      // AddStud(),
+      // EditStud(),
+      // AddFaculty(),
+      // EditFaculty(),
+      // MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
