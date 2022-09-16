@@ -20,6 +20,7 @@ import 'package:student_attendance/pages/loginpages/loginPage.dart';
 import 'package:student_attendance/theme/colors.dart';
 import 'package:flutter/material.dart';
 
+
 void main() {
   runApp(myApp());
 }
@@ -39,13 +40,13 @@ class myApp extends StatelessWidget {
       home: LoginPage(),
       // Logout(),
       // LoginNavScreen(),
-      // AttendenceDropdownPage1(),
-      // AttendenceDropdownpage2(),
-      // AttendencePage(),
+      // AttendanceDropdownPage1(),
+      // AttendanceDropdownpage2(),
+      // AttendancePage(),
       // ProfilePage(),
       // EditProfilePage(),
       // ChangePassword(),
-      // ReportGenration(),
+      // ReportGeneration(),
       // ReportPdfDownloadPage(),
       // AdminPage(),
       // AdminReport(),

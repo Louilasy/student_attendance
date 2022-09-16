@@ -52,6 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                             color: Colors.grey.shade400),
                         //Offset: Offset(0, 2),
                       ]),
+                      
                   child: Column(
                     children: [
                       Padding(padding: EdgeInsets.only(top: 20)),
