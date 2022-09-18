@@ -98,10 +98,10 @@ class _ProfilePageState extends State<ProfilePage> {
   void getGroup(BuildContext context) {}
 }
 
-Widget buildName(Faculty user) => Column(
+Widget buildName(Department user) => Column(
       children: [
         Text(
-          user.facultyName,
+          user.departmentName,
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
         ),
         const SizedBox(
@@ -115,7 +115,7 @@ Widget buildName(Faculty user) => Column(
         )
       ],
     );
-Widget buildEditButton(Faculty user, BuildContext context) => ButtonWidget(
+Widget buildEditButton(Department user, BuildContext context) => ButtonWidget(
       text: 'Edit Profile',
       icon: Icons.person,
       onClicked: () => {
@@ -124,7 +124,8 @@ Widget buildEditButton(Faculty user, BuildContext context) => ButtonWidget(
         )
       },
     );
-Widget buildChangePassButton(Faculty user, BuildContext context) => ButtonWidget(
+Widget buildChangePassButton(Department user, BuildContext context) =>
+    ButtonWidget(
       text: 'Change Password',
       icon: Icons.lock,
       onClicked: () => {
@@ -133,7 +134,7 @@ Widget buildChangePassButton(Faculty user, BuildContext context) => ButtonWidget
         )
       },
     );
-Widget buildSwitchToAdminButton(Faculty user, BuildContext context) =>
+Widget buildSwitchToAdminButton(Department user, BuildContext context) =>
     ButtonWidget(
       text: 'Switch to Admin',
       icon: Icons.switch_account,

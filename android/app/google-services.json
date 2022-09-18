@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "659165155389",
+    "firebase_url": "https://student-attendance-ebd3f-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "student-attendance-ebd3f",
+    "storage_bucket": "student-attendance-ebd3f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659165155389:android:793366b1511529d862da54",
+        "android_client_info": {
+          "package_name": "com.example.student_attendance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659165155389-216fkd1gll9f041ebfor5voi8mef9tlu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAT4Nsb_-0SnpB0JfuB5jed9oQG6jRPCRs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659165155389-216fkd1gll9f041ebfor5voi8mef9tlu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

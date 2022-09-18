@@ -4,14 +4,14 @@ import 'package:student_attendance/utils/names.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ReportGenration extends StatefulWidget {
-  const ReportGenration({Key? key}) : super(key: key);
+class ReportGeneration extends StatefulWidget {
+  const ReportGeneration({Key? key}) : super(key: key);
 
   @override
-  _ReportGenrationState createState() => _ReportGenrationState();
+  _ReportGenerationState createState() => _ReportGenerationState();
 }
 
-class _ReportGenrationState extends State<ReportGenration> {
+class _ReportGenerationState extends State<ReportGeneration> {
   @override
   Widget build(BuildContext context) {
     DateTime selectedDate = DateTime.now();

@@ -3,15 +3,14 @@ import 'package:student_attendance/widgets/dropDownWidget.dart';
 import 'package:student_attendance/utils/names.dart';
 import 'package:flutter/material.dart';
 
-class AttendenceDropdownPage1 extends StatefulWidget {
-  const AttendenceDropdownPage1({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
-  _AttendenceDropdownPage1State createState() =>
-      _AttendenceDropdownPage1State();
+  _HomeState createState() => _HomeState();
 }
 
-class _AttendenceDropdownPage1State extends State<AttendenceDropdownPage1> {
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     // String programdropdownValue = Program[0];

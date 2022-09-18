@@ -14,7 +14,7 @@ class FacultyPage extends StatefulWidget {
 
 class _FacultyPageState extends State<FacultyPage> {
   // final user = UserPrefrences.myUser;
-  final List<Faculty> user = UserPrefrences.FacultyList;
+  final List<Department> user = UserPrefrences.FacultyList;
 // var use2 = user.asMap();
   @override
   Widget build(BuildContext context) {
@@ -86,12 +86,12 @@ class _FacultyPageState extends State<FacultyPage> {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      user[index].facultyName,
+                      user[index].departmentName,
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 20.0),
                     ),
                     Text(
-                      user[index].facultyId,
+                      user[index].departmentId,
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.grey,

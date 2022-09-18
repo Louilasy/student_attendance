@@ -1,46 +1,74 @@
-class Faculty{
-    final String imagePath;
-    final String facultyId;
-    final String facultyName;
-    final String email;
-    final String phoneNo;
-    //final NumberInputElement phoneNo;
-    final String DOB;
-    final String subject;
+import 'package:firebase_auth/firebase_auth.dart';
 
-    bool isActive;
+class Department {
+  final String imagePath;
+  final String departmentId;
+  final String departmentName;
+  final String email;
+  final String phoneNo;
+  //final NumberInputElement phoneNo;
+  final String course;
 
-     Faculty({
-      required this.imagePath, 
-      required this.facultyName, 
-      required this.facultyId, 
-      required this.email, 
-      required this.phoneNo, 
-      required this.subject,  
-      required this.DOB,  
-      this.isActive = true,
-});
+  bool isActive;
+
+  Department({
+    required this.imagePath,
+    required this.departmentName,
+    required this.departmentId,
+    required this.email,
+    required this.phoneNo,
+    required this.course,
+    this.isActive = true,
+  });
 }
-class Student{
-    final String studentEnrollmentNo;
-    final String studentName;
-    final String studentemail;
-    final String semester;
-    final String program;
-    final String batch;
-    final String branch;
-    final String studingInYear;
-    bool isActive;
 
-     Student({
-      required this.studentEnrollmentNo, 
-      required this.studentName, 
-      required this.studentemail, 
-      required this.semester,  
-      required this.batch,  
-      required this.branch,  
-      required this.studingInYear,  
-      required this.program,  
-      this.isActive = true,
-});
+class User {
+  final String userId;
+  final String username;
+  final String email;
+  final String semester;
+  final String programme;
+  final String year;
+  final UserRole userRole;
+  bool isActive;
+  User({
+    required this.userId,
+    required this.username,
+    required this.email,
+    required this.semester,
+    required this.year,
+    required this.programme,
+    required this.userRole,
+    this.isActive = true,
+  });
+
+  User.fromJson(Map<String, Object?> json)
+      : this(
+          userId: json['userId']! as String,
+          username: json['username']! as String,
+          email: json['email']! as String,
+          semester: json['semester']! as String,
+          year: json['year']! as String,
+          programme: json['programme']! as String,
+          isActive: json['isActive']! as bool,
+          userRole:
+              (json['isAdmin']! as bool) ? UserRole.Admin : UserRole.Student,
+        );
+  Map<String, Object?> toJson() {
+    return {
+      'userId': userId,
+      'username': username,
+      'email': email,
+      'semester': semester,
+      'year': year,
+      'programme': programme,
+      'isActive': isActive,
+      'userRole': (userRole == UserRole.Admin),
+    };
+  }
+}
+
+enum UserRole {
+  Admin,
+  Student,
 }

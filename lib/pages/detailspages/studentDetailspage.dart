@@ -80,19 +80,19 @@ class _StudentDetailsPageState extends State<StudentDetailsPage> {
                     child: Column(
                       children: <Widget>[
                         Text(
-                          studentvar[index].studentEnrollmentNo,
+                          studentvar[index].userId,
                           // Enrollment[index],
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20.0),
                         ),
                         Text(
-                          studentvar[index].studentName,
+                          studentvar[index].username,
                           // Students[index],
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 17.0),
                         ),
                         Text(
-                          studentvar[index].studentemail,
+                          studentvar[index].email,
                           // StudentEmail[index],
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 13.0),
@@ -135,23 +135,15 @@ class _StudentDetailsPageState extends State<StudentDetailsPage> {
                     child: Column(
                       children: [
                         Text(
-                          "Program : " + studentvar[index].program,
+                          "Program : " + studentvar[index].programme,
                           style: TextStyle(fontSize: 13),
                         ),
-                        Text(
-                          "Batch : " + studentvar[index].batch,
-                          style: TextStyle(fontSize: 13),
-                        )
                       ],
                     ),
                   ),
                   Expanded(
                     child: Column(
                       children: [
-                        Text(
-                          "Branch : " + studentvar[index].branch,
-                          style: TextStyle(fontSize: 13),
-                        ),
                         Text(
                           "Semester : " + studentvar[index].semester,
                           style: TextStyle(fontSize: 13),
@@ -163,7 +155,7 @@ class _StudentDetailsPageState extends State<StudentDetailsPage> {
                     child: Column(
                       children: [
                         Text(
-                          "Year : " + studentvar[index].studingInYear,
+                          "Year : " + studentvar[index].year,
                           style: TextStyle(fontSize: 13),
                         ),
                       ],

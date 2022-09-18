@@ -13,7 +13,7 @@ class FacultyDetailsPage extends StatefulWidget {
 }
 
 class _FacultyDetailsPageState extends State<FacultyDetailsPage> {
-  final List<Faculty> user = UserPrefrences.FacultyList;
+  final List<Department> user = UserPrefrences.FacultyList;
 
   @override
   Widget build(BuildContext context) {
@@ -71,12 +71,12 @@ class _FacultyDetailsPageState extends State<FacultyDetailsPage> {
                       child: Column(
                     children: <Widget>[
                       Text(
-                        user[index].facultyId,
+                        user[index].departmentId,
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20.0),
                       ),
                       Text(
-                        user[index].facultyName,
+                        user[index].departmentName,
                         style: TextStyle(fontSize: 15.0),
                       ),
                       Text(

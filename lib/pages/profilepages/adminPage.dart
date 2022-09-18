@@ -108,7 +108,7 @@ class _AdminPageState extends State<AdminPage> {
   }
 }
 
-Widget buildSwitchToFacultyButton(Faculty user, BuildContext context) =>
+Widget buildSwitchToFacultyButton(Department user, BuildContext context) =>
     ButtonWidget(
       text: 'Switch To Faculty',
       icon: Icons.switch_account,
@@ -118,7 +118,7 @@ Widget buildSwitchToFacultyButton(Faculty user, BuildContext context) =>
         )
       },
     );
-Widget buildStudentDetailsButton(Faculty user, BuildContext context) =>
+Widget buildStudentDetailsButton(Department user, BuildContext context) =>
     ButtonWidget(
       text: 'Student Details',
       icon: Icons.list_rounded,
@@ -128,7 +128,7 @@ Widget buildStudentDetailsButton(Faculty user, BuildContext context) =>
         )
       },
     );
-Widget buildFacultyDetailsButton(Faculty user, BuildContext context) =>
+Widget buildFacultyDetailsButton(Department user, BuildContext context) =>
     ButtonWidget(
       text: 'Faculty Details',
       icon: Icons.list_rounded,

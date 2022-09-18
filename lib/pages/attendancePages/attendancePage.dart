@@ -190,7 +190,7 @@ class _AttendencePageState extends State<AttendencePage> {
                   width: 25,
                 ),
                 Text(
-                  studentvar[index].studentName,
+                  studentvar[index].username,
                   style: TextStyle(fontSize: 20),
                 ),
               ],

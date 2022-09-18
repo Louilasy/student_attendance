@@ -1,7 +1,11 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:student_attendance/pages/attendancePages/attendancedropdown1.dart';
 import 'package:student_attendance/pages/bottomNavBar.dart';
 import 'package:student_attendance/pages/loginpages/forgetpass.dart';
 import 'package:flutter/material.dart';
+import 'package:student_attendance/pages/loginpages/registrationPage.dart';
 
 // ignore: must_be_immutable
 class LoginPage extends StatefulWidget {
@@ -13,6 +17,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _isObscure = true;
+  String email = '';
+  String password = '';
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +35,18 @@ class _LoginPageState extends State<LoginPage> {
                 Container(
                   // height: 250,
                   // width: 300,
-                  child: Image.asset(
-                      /*'assets/images/a2e00219-0473-458c-a589-ace1758f609c.png'*/
-                      'assets/LogoLoginPage.png'),
+                  child: Image.asset('assets/Logo_Login_Page.png'),
+                  height: 100.0,
                 ),
-                //),
-                //),
-
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 20.0),
+                  child: Text(
+                    'KWAME NKRUMAH UNIVERSITY OF SCIENCE AND TECHNOLOGY',
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
+                  ),
+                ),
                 Container(
                   alignment: Alignment.center,
                   margin: EdgeInsets.all(13),
@@ -52,7 +64,6 @@ class _LoginPageState extends State<LoginPage> {
                             color: Colors.grey.shade400),
                         //Offset: Offset(0, 2),
                       ]),
-                      
                   child: Column(
                     children: [
                       Padding(padding: EdgeInsets.only(top: 20)),
@@ -68,14 +79,21 @@ class _LoginPageState extends State<LoginPage> {
                       Padding(padding: EdgeInsets.only(top: 40)),
                       TextField(
                         decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            labelText: 'Email ID',
-                            hintText: 'Enter your Email ID'),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          labelText: 'Email ID',
+                          hintText: 'Enter your Email ID',
+                        ),
+                        onChanged: (newValue) {
+                          email = newValue;
+                        },
                       ),
                       Padding(padding: EdgeInsets.only(top: 10)),
                       TextField(
+                        onChanged: (newValue) {
+                          password = newValue;
+                        },
                         obscureText: _isObscure,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -108,19 +126,56 @@ class _LoginPageState extends State<LoginPage> {
                                 fontSize: 20,
                                 color: Color.fromARGB(130, 6, 0, 79)),
                           )),
-                      Center(
-                        child: ElevatedButton(
+                      TextButton(
                           onPressed: () {
-                            Navigator.of(context).pushReplacement(
+                            Navigator.of(context).push(
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      LoginNavScreen()),
+                                  builder: (context) => RegistrationPage()),
                             );
                           },
                           child: Text(
-                            'Sign In',
-                            style: TextStyle(color: Colors.white, fontSize: 25),
-                          ),
+                            'Sign Up',
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Color.fromARGB(130, 6, 0, 79)),
+                          )),
+                      Center(
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            UserCredential credential;
+                            try {
+                              credential = await FirebaseAuth.instance
+                                  .signInWithEmailAndPassword(
+                                email: email,
+                                password: password,
+                              );
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                    builder: (context) => LoginNavScreen()),
+                              );
+                            } on FirebaseAuthException catch (e) {
+                              if (e.code == 'user-not-found') {
+                                log('No user found for that email.');
+                              } else if (e.code == 'wrong-password') {
+                                log('Wrong password provided for that user.');
+                              }
+                            } catch (e) {
+                              log(e.toString());
+                            }
+
+                            setState(() {
+                              isLoading = true;
+                            });
+                          },
+                          child: isLoading
+                              ? CircularProgressIndicator(
+                                  color: Colors.white,
+                                )
+                              : Text(
+                                  'Sign In',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 25),
+                                ),
                           style: ElevatedButton.styleFrom(
                             shape: new RoundedRectangleBorder(
                               borderRadius: new BorderRadius.circular(15),
