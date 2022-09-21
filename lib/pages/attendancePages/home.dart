@@ -13,12 +13,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    // String programdropdownValue = Program[0];
-    // String branchdropdownValue = Branch[0];
-    // String schooldropdownValue = School[0];
-    // String semdropdownValue = Semester[0];
-    // String yeardropdownValue = CollegeYear[0];
-
     return Scaffold(
         body: Padding(
             padding: const EdgeInsets.all(15.0),
@@ -47,31 +41,28 @@ class _HomeState extends State<Home> {
                       SizedBox(
                         height: 30,
                       ),
-                      dropdown(
+                      Dropdown(
                         dropdownValue: programdropdownValue,
                         hint: "Program",
-                        sTring: Program,
+                        values: programmes,
                       ),
                       SizedBox(
                         height: 20,
                       ),
-                      dropdown(
+                      Dropdown(
                           dropdownValue: schooldropdownValue,
                           hint: "School",
-                          sTring: School),
+                          values: school),
                       SizedBox(
                         height: 20,
                       ),
-                      dropdown(
-                          dropdownValue: branchdropdownValue,
-                          sTring: Branch,
-                          hint: "Branch"),
+
                       SizedBox(
                         height: 20,
                       ),
-                      dropdown(
+                      Dropdown(
                           dropdownValue: yeardropdownValue,
-                          sTring: CollegeYear,
+                          values: collegeYear,
                           hint: "Year"),
                       SizedBox(
                         height: 20,

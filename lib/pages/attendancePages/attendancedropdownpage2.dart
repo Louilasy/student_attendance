@@ -59,23 +59,20 @@ class _AttendenceDropdownpage2State extends State<AttendenceDropdownpage2> {
               SizedBox(
                 height: 20,
               ),
-              dropdown(
+              Dropdown(
                   dropdownValue: semesterdropdownValue,
-                  sTring: Semester,
+                  values: semesters,
                   hint: "Semester"),
               SizedBox(
                 height: 20,
               ),
-              dropdown(
-                  dropdownValue: batchdropdownValue,
-                  sTring: Batch,
-                  hint: "Batch"),
+
               SizedBox(
                 height: 20,
               ),
-              dropdown(
+              Dropdown(
                   dropdownValue: subjectdropdownValue,
-                  sTring: Subject,
+                  values: subject,
                   hint: "Subject"),
               SizedBox(
                 height: 30,
@@ -90,128 +87,7 @@ class _AttendenceDropdownpage2State extends State<AttendenceDropdownpage2> {
                   style: TextStyle(color: Colors.white),
                 ),
               ),
-              // Row(children: [
-              //   SizedBox(
-              //     width: 30,
-              //   ),
-              //    Container(
-              //       padding: EdgeInsets.symmetric(horizontal: 10.0),
-              //       decoration: BoxDecoration(
-              //           color: Colors.grey[100],
-              //           borderRadius: BorderRadius.circular(15.0),
-              //           border: Border.all(
-              //               color: Colors.grey,
-              //               style: BorderStyle.solid,
-              //               width: 0.80),
-              //           boxShadow: [
-              //             BoxShadow(
-              //               color: Colors.grey,
-              //               offset: const Offset(
-              //                 5.0,
-              //                 5.0,
-              //               ),
-              //               blurRadius: 10.0,
-              //               spreadRadius: 2.0,
-              //             ),
-              //           ]),
-              //       child: DropdownButton<String>(
-              //         underline: Container(
-              //                 height: 0,
-              //             color: Colors.black),
-              //         hint: Text(datedropdownValue),
-              //         items: Date
-              //             //  <String>['A', 'B', 'C', 'D']
-              //             .map((String value) {
-              //           return DropdownMenuItem<String>(
-              //             value: value,
-              //             child: Text(value),
-              //           );
-              //         }).toList(),
-              //         onChanged: (_) {},
-              //       ),
-              //     ),
 
-              //   SizedBox(
-              //     width: 30,
-              //   ),
-              //    Container(
-              //       padding: EdgeInsets.symmetric(horizontal: 10.0),
-              //       decoration: BoxDecoration(
-              //           color: Colors.grey[100],
-              //           borderRadius: BorderRadius.circular(15.0),
-              //           border: Border.all(
-              //               color: Colors.grey,
-              //               style: BorderStyle.solid,
-              //               width: 0.80),
-              //           boxShadow: [
-              //             BoxShadow(
-              //               color: Colors.grey,
-              //               offset: const Offset(
-              //                 5.0,
-              //                 5.0,
-              //               ),
-              //               blurRadius: 10.0,
-              //               spreadRadius: 2.0,
-              //             ),
-              //           ]),
-              //       child: DropdownButton<String>(
-              //         underline: Container(
-              //                 height: 0,
-              //             color: Colors.black),
-              //         hint: Text(monthdropdownValue),
-              //         items: Month
-              //             //  <String>['A', 'B', 'C', 'D']
-              //             .map((String value) {
-              //           return DropdownMenuItem<String>(
-              //             value: value,
-              //             child: Text(value),
-              //           );
-              //         }).toList(),
-              //         onChanged: (_) {},
-              //       ),
-
-              //   ),
-              //   SizedBox(
-              //     width: 30,
-              //   ),
-              //    Container(
-              //       padding: EdgeInsets.symmetric(horizontal: 10.0),
-              //       decoration: BoxDecoration(
-              //           color: Colors.grey[100],
-              //           borderRadius: BorderRadius.circular(15.0),
-              //           border: Border.all(
-              //               color: Colors.grey,
-              //               style: BorderStyle.solid,
-              //               width: 0.80),
-              //           boxShadow: [
-              //             BoxShadow(
-              //               color: Colors.grey,
-              //               offset: const Offset(
-              //                 5.0,
-              //                 5.0,
-              //               ),
-              //               blurRadius: 10.0,
-              //               spreadRadius: 2.0,
-              //             ),
-              //           ]),
-              //       child: DropdownButton<String>(
-              //         underline: Container(
-              //                 height: 0,
-              //             color: Colors.black),
-              //         hint: Text(yeardropdownValue),
-              //         items: Year
-              //             //<String>['A', 'B', 'C', 'D']
-              //             .map((String value) {
-              //           return DropdownMenuItem<String>(
-              //             value: value,
-              //             child: Text(value),
-              //           );
-              //         }).toList(),
-              //         onChanged: (_) {},
-              //       ),
-              //     ),
-
-              // ]),
               SizedBox(
                 height: 20,
               ),
@@ -256,8 +132,6 @@ class _AttendenceDropdownpage2State extends State<AttendenceDropdownpage2> {
                               Expanded(
                                   child:
                                       Text("Program : $programdropdownValue")),
-                              Expanded(
-                                  child: Text("Branch : $branchdropdownValue")),
                             ],
                           ),
                         ),
@@ -277,10 +151,6 @@ class _AttendenceDropdownpage2State extends State<AttendenceDropdownpage2> {
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
                             children: [
-                              Center(
-                                  child: Expanded(
-                                      child:
-                                          Text("Batch : $batchdropdownValue"))),
                               Center(
                                   child: Expanded(
                                       child: Text(

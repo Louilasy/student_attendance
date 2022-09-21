@@ -22,7 +22,6 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     int currentindex = 0;
-    getGroup(context);
     final user = UserPrefrences.myUser;
 
     return Scaffold(
@@ -38,64 +37,26 @@ class _ProfilePageState extends State<ProfilePage> {
             Center(
               child: Image.asset('assets/Logo_Login_Page.png'),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             ProfileWidget(
               imagePath: user.imagePath,
               size: 224,
             ),
-            const SizedBox(
-              height: 15,
-            ),
+            const SizedBox(height: 15),
             buildName(user),
-            const SizedBox(
-              height: 15,
-            ),
+            const SizedBox(height: 15),
             Center(child: buildEditButton(user, context)),
-            const SizedBox(
-              height: 15,
-            ),
+            const SizedBox(height: 15),
             Center(child: buildChangePassButton(user, context)),
-            const SizedBox(
-              height: 24,
-            ),
-            Center(child: buildSwitchToAdminButton(user, context)),
+            const SizedBox(height: 24),
+            (false)
+                ? Center(child: buildSwitchToAdminButton(user, context))
+                : const SizedBox(height: 24),
           ],
         ),
       ),
-      // bottomNavigationBar: BuildFacultyBottomNavBar(currentindex),
-      //     BottomNavigationBar(
-      //   type: BottomNavigationBarType.fixed,
-      //   backgroundColor: primaryColor,
-      //   currentIndex: currentindex,
-      //   selectedItemColor: Colors.white,
-      //   unselectedItemColor: Colors.white70,
-      //   onTap: (index) => setState(() => currentindex = index),
-      //   items: [
-      //     BottomNavigationBarItem(
-      //       // icon: Icon(Icons.support_agent),
-      //       icon: Icon(Icons.assignment_outlined),
-      //       label: 'Attendence',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.description_outlined),
-      //       label: 'Report',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.account_circle_outlined),
-      //       label: 'Profile',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.logout),
-      //       label: 'Log Out',
-      //     ),
-      //   ],
-      // ),
     );
   }
-
-  void getGroup(BuildContext context) {}
 }
 
 Widget buildName(Department user) => Column(

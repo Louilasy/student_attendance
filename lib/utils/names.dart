@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-List<String> Program = ["B.Tech", "MBA", "BBA", "B.Com"];
-List<String> School = [
+List<String> programmes = ["B.Tech", "MBA", "BBA", "B.Com"];
+List<String> school = [
   "SCSIT",
   "SAME",
 ];
 // List<String> Year = ["2021", "2022"];
-List<String> Semester = [
+List<String> semesters = [
   "1",
   "2",
   "3",
@@ -16,18 +16,14 @@ List<String> Semester = [
   "7",
   "8",
 ];
-List<String> Batch = ["B1", "B2", "B3", "B1 & B2"];
-List<String> Branch = [
-  "C.S.I.T",
-  "Mecha",
-];
-List<String> Subject = [
+
+List<String> subject = [
   "Artificial Intelegence",
   "TOC",
   "CCS",
   "Machine Learning"
 ];
-List<String> Students = [
+List<String> students = [
   "Aardhya",
   "Aashiv",
   "Aayush",
@@ -47,8 +43,7 @@ List<String> Students = [
   "Dushyant",
   "Devanshu"
 ];
-List<String> Month = ["Janurary", "Feburary", "March"];
-List<String> Date = [
+List<String> date = [
   "1",
   "2",
   "3",
@@ -71,12 +66,12 @@ List<String> Date = [
   "20",
   "21"
 ];
-List<String> CollegeYear = [
+List<String> collegeYear = [
   "1st",
   "2nd",
   "3rd",
 ];
-List<String> Enrollment = [
+List<String> enrollment = [
   "2019btcs001",
   "2019btcs002",
   "2019btcs003",
@@ -97,7 +92,7 @@ List<String> Enrollment = [
   "2019btcs018",
   "2019btcs019"
 ];
-List<String> StudentEmail = [
+List<String> studentEmail = [
   "2019btcs001@student.suas.ac.in",
   "2019btcs002@student.suas.ac.in",
   "2019btcs003@student.suas.ac.in",
@@ -118,15 +113,15 @@ List<String> StudentEmail = [
   "2019btcs018@student.suas.ac.in",
   "2019btcs019@student.suas.ac.in"
 ];
-List<String> FacultyDOB = ["11/11/99"];
-List<String> FacultiesID = [
+List<String> facultyDOB = ["11/11/99"];
+List<String> facultiesID = [
   "Facultybtcs001",
 ];
-List<String> FacultiesEmailID = [
+List<String> facultiesEmailID = [
   "Facultybtcs001@suas.ac.in",
 ];
-List<String> PhoneNo = ["9878768767"];
-List<bool> StudentisActive = [
+List<String> phoneNo = ["9878768767"];
+List<bool> studentisActive = [
   true,
   true,
   true,
@@ -145,7 +140,7 @@ List<bool> StudentisActive = [
   true,
   true,
 ];
-List<bool> FacultiesisActive = [
+List<bool> facultiesisActive = [
   true,
   true,
   true,
@@ -163,24 +158,12 @@ List<bool> FacultiesisActive = [
   true,
   true,
 ];
-List<String> Faculties = [
-  // "Ashish bansal",
+List<String> faculties = [
   "Neha Gupta",
   "Ashish bansal",
   "Manish Khule",
-  // "Ashish bansal",
-  // "Neha Gupta",
-  // "Ashish bansal",
-  // "Manish Khule",
-  // "Ashish bansal",
-  // "Neha Gupta",
-  // "Ashish bansal",
-  // "Manish Khule",
-  // "Ashish bansal",
-  // "Neha Gupta",
-  // "Ashish bansal",
-  // "Manish Khule",
 ];
+
 List<int> isSelectedList = [
   0,
   0,
@@ -222,21 +205,16 @@ List attendencecolor = [
   Colors.white,
 ];
 //  0, /*Absent*/    1, /*Present*/    2 /*Absent*/
-String semesterdropdownValue = Semester[0];
-String batchdropdownValue = Batch[0];
-String schooldropdownValue = School[0];
-String subjectdropdownValue = Subject[0];
-String yeardropdownValue = CollegeYear[0];
-String programdropdownValue = Program[0];
-String branchdropdownValue = Branch[0];
-String facultiesdropdownValue = Faculties[0];
+String semesterdropdownValue = semesters[0];
+String schooldropdownValue = school[0];
+String subjectdropdownValue = subject[0];
+String yeardropdownValue = collegeYear[0];
+String programdropdownValue = programmes[0];
+
 Map<String, String> values = {
   programdropdownValue: "MBA",
   semesterdropdownValue: "1",
-  batchdropdownValue: "B1",
   schooldropdownValue: "SCSIT",
   subjectdropdownValue: "Artificial Intelegence",
   yeardropdownValue: "3rd",
-  branchdropdownValue: "Mecha",
-  facultiesdropdownValue: "Neha Gupta",
 };

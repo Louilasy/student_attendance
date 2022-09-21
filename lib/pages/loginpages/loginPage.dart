@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:student_attendance/pages/attendancePages/attendancedropdown1.dart';
+import 'package:student_attendance/pages/attendancePages/home.dart';
 import 'package:student_attendance/pages/bottomNavBar.dart';
 import 'package:student_attendance/pages/loginpages/forgetpass.dart';
 import 'package:flutter/material.dart';
@@ -113,59 +113,68 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       Padding(padding: EdgeInsets.only(top: 14)),
-                      TextButton(
-                          onPressed: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                  builder: (context) => ForgetPass()),
-                            );
-                          },
-                          child: Text(
-                            'Forgot Password',
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Color.fromARGB(130, 6, 0, 79)),
-                          )),
-                      TextButton(
-                          onPressed: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                  builder: (context) => RegistrationPage()),
-                            );
-                          },
-                          child: Text(
-                            'Sign Up',
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Color.fromARGB(130, 6, 0, 79)),
-                          )),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          TextButton(
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => ForgetPass()),
+                                );
+                              },
+                              child: Text(
+                                'Forgot Password',
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    color: Color.fromARGB(130, 6, 0, 79)),
+                              )),
+                          TextButton(
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => RegistrationPage()),
+                                );
+                              },
+                              child: Text(
+                                'Sign Up',
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    color: Color.fromARGB(130, 6, 0, 79)),
+                              )),
+                        ],
+                      ),
                       Center(
                         child: ElevatedButton(
                           onPressed: () async {
-                            UserCredential credential;
-                            try {
-                              credential = await FirebaseAuth.instance
-                                  .signInWithEmailAndPassword(
-                                email: email,
-                                password: password,
-                              );
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                    builder: (context) => LoginNavScreen()),
-                              );
-                            } on FirebaseAuthException catch (e) {
-                              if (e.code == 'user-not-found') {
-                                log('No user found for that email.');
-                              } else if (e.code == 'wrong-password') {
-                                log('Wrong password provided for that user.');
-                              }
-                            } catch (e) {
-                              log(e.toString());
-                            }
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => LoginNavScreen()),
+                            );
+                            // UserCredential credential;
+                            // try {
+                            //   credential = await FirebaseAuth.instance
+                            //       .signInWithEmailAndPassword(
+                            //     email: email,
+                            //     password: password,
+                            //   );
+                            //   Navigator.of(context).push(
+                            //     MaterialPageRoute(
+                            //         builder: (context) => LoginNavScreen()),
+                            //   );
+                            // } on FirebaseAuthException catch (e) {
+                            //   if (e.code == 'user-not-found') {
+                            //     log('No user found for that email.');
+                            //   } else if (e.code == 'wrong-password') {
+                            //     log('Wrong password provided for that user.');
+                            //   }
+                            // } catch (e) {
+                            //   log(e.toString());
+                            // }
 
-                            setState(() {
-                              isLoading = true;
-                            });
+                            // setState(() {
+                            //   isLoading = true;
+                            // });
                           },
                           child: isLoading
                               ? CircularProgressIndicator(

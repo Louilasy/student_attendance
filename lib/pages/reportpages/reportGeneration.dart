@@ -1,7 +1,6 @@
 import 'package:student_attendance/widgets/dropDownWidget.dart';
 import 'package:student_attendance/pages/reportpages/reportPdfDownload.dart';
 import 'package:student_attendance/utils/names.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ReportGeneration extends StatefulWidget {
@@ -55,44 +54,23 @@ class _ReportGenerationState extends State<ReportGeneration> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             // SizedBox(height: 20),
-            dropdown(
+            Dropdown(
                 dropdownValue: yeardropdownValue,
-                sTring: CollegeYear,
+                values: collegeYear,
                 hint: "Year"),
             // SizedBox(height: 20),
-            dropdown(
+            Dropdown(
                 dropdownValue: semesterdropdownValue,
-                sTring: Semester,
+                values: semesters,
                 hint: "Semester"),
             // SizedBox(height: 20),
-            dropdown(
-                dropdownValue: batchdropdownValue,
-                sTring: Batch,
-                hint: "Batch"),
+
             // SizedBox(height: 20),
-            dropdown(
+            Dropdown(
                 dropdownValue: subjectdropdownValue,
-                sTring: Subject,
+                values: subject,
                 hint: "Subject"),
-            // SizedBox(height: 20),
-            dropdownButton(
-              facultiesdropdownValue,
-              Faculties,
-              "Faculty",
-            ),
-            // SizedBox(height: 40),
-            // Container(
-            //   height: 200,
-            //   width: 200,
-            //   child: CupertinoDatePicker(
-            //     mode: CupertinoDatePickerMode.date,
-            //     initialDateTime: DateTime(1969, 1, 1),
-            //     onDateTimeChanged: (DateTime newDateTime) {
-            //       // Do something
-            //     },
-            //   ),
-            // ),
-            // date picker
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [

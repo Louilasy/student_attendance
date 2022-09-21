@@ -5,14 +5,7 @@ Widget dropdownButton(
   String? dropdownValue,
   List<String> string,
   String hint,
-  // {required List<String> sTring}
 ) {
-  // switch (hint) {
-  //   case "Program":
-  //     dropdownValue = programdropdownValue;
-  //     break;
-  //   default:
-  // }
   void ChangeState() {
     switch (hint) {
       case "Program":
@@ -21,23 +14,16 @@ Widget dropdownButton(
       case "School":
         schooldropdownValue = dropdownValue!;
         break;
-      case "Branch":
-        branchdropdownValue = dropdownValue!;
-        break;
+
       case "Year":
         yeardropdownValue = dropdownValue!;
         break;
       case "Semester":
         semesterdropdownValue = dropdownValue!;
         break;
-      case "Batch":
-        batchdropdownValue = dropdownValue!;
-        break;
+
       case "Subject":
         subjectdropdownValue = dropdownValue!;
-        break;
-      case "Faculty":
-        facultiesdropdownValue = dropdownValue!;
         break;
       default:
     }
@@ -102,22 +88,22 @@ Widget dropdownButton(
   );
 }
 
-class dropdown extends StatefulWidget {
+class Dropdown extends StatefulWidget {
   final String dropdownValue;
-  final List<String> sTring;
+  final List<String> values;
   final String hint;
-  dropdown({
+  Dropdown({
     Key? key,
     required this.dropdownValue,
-    required this.sTring,
+    required this.values,
     required this.hint,
   }) : super(key: key);
 
   @override
-  _dropdownState createState() => _dropdownState();
+  _DropdownState createState() => _DropdownState();
 }
 
-class _dropdownState extends State<dropdown> {
+class _DropdownState extends State<Dropdown> {
   late String dropdownValue;
   late List<String> string;
   late String hint;
@@ -129,24 +115,17 @@ class _dropdownState extends State<dropdown> {
       case "School":
         schooldropdownValue = dropdownValue;
         break;
-      case "Branch":
-        branchdropdownValue = dropdownValue;
-        break;
       case "Year":
         yeardropdownValue = dropdownValue;
         break;
       case "Semester":
         semesterdropdownValue = dropdownValue;
         break;
-      case "Batch":
-        batchdropdownValue = dropdownValue;
-        break;
+
       case "Subject":
         subjectdropdownValue = dropdownValue;
         break;
-      case "Faculty":
-        facultiesdropdownValue = dropdownValue;
-        break;
+
       default:
     }
   }
@@ -154,7 +133,7 @@ class _dropdownState extends State<dropdown> {
   void initState() {
     super.initState();
     dropdownValue = widget.dropdownValue;
-    string = widget.sTring;
+    string = widget.values;
     hint = widget.hint;
   }
 

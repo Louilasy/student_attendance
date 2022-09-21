@@ -58,7 +58,7 @@ class _StudentDetailsPageState extends State<StudentDetailsPage> {
 
   buildStudentDetailsCard(BuildContext context, int index) {
     var index2 = index + 1;
-    List<bool> isActive = StudentisActive;
+    List<bool> isActive = studentisActive;
     return new Container(
       child: Card(
         elevation: 5,

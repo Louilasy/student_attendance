@@ -12,12 +12,11 @@ class AdminReport extends StatefulWidget {
 
 class _AdminReportState extends State<AdminReport> {
   Widget build(BuildContext context) {
-    String programdropdownValue = Program[0];
-    String subjectdropdownValue = Subject[0];
-    String batchdropdownValue = Batch[0];
-    String schooldropdownValue = School[0];
-    String semdropdownValue = Semester[0];
-    String yeardropdownValue = CollegeYear[0];
+    String programdropdownValue = programmes[0];
+    String subjectdropdownValue = subject[0];
+    String schooldropdownValue = school[0];
+    String semdropdownValue = semesters[0];
+    String yeardropdownValue = collegeYear[0];
 
     return Scaffold(
       appBar: AppBar(
@@ -43,45 +42,41 @@ class _AdminReportState extends State<AdminReport> {
                 SizedBox(
                   height: 20,
                 ),
-                dropdown(
+                Dropdown(
                     dropdownValue: programdropdownValue,
-                    sTring: Program,
+                    values: programmes,
                     hint: "Program"),
                 SizedBox(
                   height: 20,
                 ),
-                dropdown(
+                Dropdown(
                     dropdownValue: schooldropdownValue,
-                    sTring: School,
+                    values: school,
                     hint: "School"),
                 SizedBox(
                   height: 20,
                 ),
-                dropdown(
+                Dropdown(
                     dropdownValue: yeardropdownValue,
-                    sTring: CollegeYear,
+                    values: collegeYear,
                     hint: "Year"),
                 SizedBox(
                   height: 20,
                 ),
-                dropdown(
+                Dropdown(
                     dropdownValue: semdropdownValue,
-                    sTring: Semester,
+                    values: semesters,
                     hint: "Semester"),
                 SizedBox(
                   height: 20,
                 ),
-                dropdown(
+                Dropdown(
                     dropdownValue: subjectdropdownValue,
-                    sTring: Subject,
+                    values: subject,
                     hint: "Subject"),
                 SizedBox(
                   height: 20,
                 ),
-                dropdown(
-                    dropdownValue: batchdropdownValue,
-                    sTring: Batch,
-                    hint: "Batch"),
                 SizedBox(
                   height: 20,
                 ),

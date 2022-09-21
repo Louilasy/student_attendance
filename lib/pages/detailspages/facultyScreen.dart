@@ -68,7 +68,7 @@ class _FacultyPageState extends State<FacultyPage> {
   }
 
   buildFacultyCard(BuildContext context, int index) {
-    List<bool> isActive = FacultiesisActive;
+    List<bool> isActive = facultiesisActive;
     return new Container(
       child: Card(
         child: Padding(
