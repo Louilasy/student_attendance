@@ -22,7 +22,7 @@ class Department {
   });
 }
 
-class User {
+class UniUser {
   final String userId;
   final String username;
   final String email;
@@ -31,7 +31,7 @@ class User {
   final String year;
   final UserRole userRole;
   bool isActive;
-  User({
+  UniUser({
     required this.userId,
     required this.username,
     required this.email,
@@ -42,7 +42,7 @@ class User {
     this.isActive = true,
   });
 
-  User.fromJson(Map<String, Object?> json)
+  UniUser.fromJson(Map<String, Object?> json)
       : this(
           userId: json['userId']! as String,
           username: json['username']! as String,

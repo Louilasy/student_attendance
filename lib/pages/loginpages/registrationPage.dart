@@ -1,5 +1,9 @@
+import 'dart:developer';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:student_attendance/model/userDetailModel.dart';
 import 'package:student_attendance/pages/loginpages/forgetpass.dart';
 
 // ignore: must_be_immutable
@@ -134,6 +138,15 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                   email: email,
                                   password: password,
                                 );
+
+                                DocumentReference<UniUser> newUserDetailsRef =
+                                    await createUserDetails(credential.user!);
+
+                                if (newUserDetailsRef == Null) {
+                                  log('User detail creation successful.');
+                                } else {
+                                  log('User detail creation failed.');
+                                }
                               } on FirebaseAuthException catch (e) {
                                 if (e.code == 'weak-password') {
                                   print('The password provided is too weak.');
@@ -172,4 +185,23 @@ class _RegistrationPageState extends State<RegistrationPage> {
   }
 
   //void setState(Null Function() param0) {}
+}
+
+Future<DocumentReference<UniUser>> createUserDetails(User user) {
+  var newUser = UniUser(
+    userId: user.uid,
+    username: user.uid,
+    email: user.email!,
+    semester: 'semester',
+    year: 'year',
+    programme: 'programme',
+    userRole: UserRole.Student,
+  );
+
+  final usersRef =
+      FirebaseFirestore.instance.collection('users').withConverter<UniUser>(
+            fromFirestore: (snapshot, _) => UniUser.fromJson(snapshot.data()!),
+            toFirestore: (movie, _) => movie.toJson(),
+          );
+  return usersRef.add(newUser);
 }

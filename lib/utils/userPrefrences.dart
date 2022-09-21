@@ -124,7 +124,7 @@ class UserPrefrences {
     departmentId: "123",
     course: "Subject Name",
   );
-  static var student = User(
+  static var student = UniUser(
     userId: "2019btcs002",
     username: "Abhinay",
     email: "2019btcs002@@Student.com",
@@ -133,8 +133,8 @@ class UserPrefrences {
     programme: "Btech",
     userRole: UserRole.Student,
   );
-  static List<User> studentlist = [
-    User(
+  static List<UniUser> studentlist = [
+    UniUser(
       userId: "2019btcs002",
       username: "Abhinay",
       email: "2019btcs002@@Student.com",
@@ -143,7 +143,7 @@ class UserPrefrences {
       programme: "Btech",
       userRole: UserRole.Student,
     ),
-    User(
+    UniUser(
         userId: Enrollment[0],
         username: Students[0],
         email: StudentEmail[0],
@@ -151,7 +151,7 @@ class UserPrefrences {
         year: CollegeYear[0],
         programme: Program[0],
         userRole: UserRole.Student),
-    User(
+    UniUser(
         userId: Enrollment[1],
         username: Students[1],
         email: StudentEmail[1],
@@ -159,7 +159,7 @@ class UserPrefrences {
         year: CollegeYear[0],
         programme: Program[0],
         userRole: UserRole.Student),
-    User(
+    UniUser(
         userId: Enrollment[2],
         username: Students[2],
         email: StudentEmail[2],
@@ -167,7 +167,7 @@ class UserPrefrences {
         year: CollegeYear[0],
         programme: Program[0],
         userRole: UserRole.Student),
-    User(
+    UniUser(
         userId: Enrollment[3],
         username: Students[3],
         email: StudentEmail[3],
@@ -175,7 +175,7 @@ class UserPrefrences {
         year: CollegeYear[0],
         programme: Program[0],
         userRole: UserRole.Student),
-    User(
+    UniUser(
         userId: Enrollment[4],
         username: Students[4],
         email: StudentEmail[4],
@@ -183,7 +183,7 @@ class UserPrefrences {
         year: CollegeYear[0],
         programme: Program[0],
         userRole: UserRole.Student),
-    User(
+    UniUser(
         userId: Enrollment[5],
         username: Students[5],
         email: StudentEmail[5],
@@ -191,7 +191,7 @@ class UserPrefrences {
         year: CollegeYear[0],
         programme: Program[0],
         userRole: UserRole.Student),
-    User(
+    UniUser(
         userId: Enrollment[6],
         username: Students[6],
         email: StudentEmail[6],
@@ -199,7 +199,7 @@ class UserPrefrences {
         year: CollegeYear[0],
         programme: Program[0],
         userRole: UserRole.Student),
-    User(
+    UniUser(
         userId: Enrollment[7],
         username: Students[7],
         email: StudentEmail[7],
@@ -207,7 +207,7 @@ class UserPrefrences {
         year: CollegeYear[0],
         programme: Program[0],
         userRole: UserRole.Student),
-    User(
+    UniUser(
         userId: Enrollment[8],
         username: Students[8],
         email: StudentEmail[8],
@@ -215,7 +215,7 @@ class UserPrefrences {
         year: CollegeYear[0],
         programme: Program[0],
         userRole: UserRole.Student),
-    User(
+    UniUser(
         userId: Enrollment[9],
         username: Students[9],
         email: StudentEmail[9],
