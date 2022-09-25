@@ -17,21 +17,17 @@ List<String> semesters = [
   "8",
 ];
 
-List<String> subject = [
-       "Artificial Intelligence",
-       "Computer Architecture",
-       "Introduction To Electronic",
-       "Introduction To Structured Programming Design",
-       "Circuit Theory",
-       "Discrete Mathematics",
-       "Introduction To Economics",
-       "Discrete Mathematics",
-       "Computer Graphics",
-       "Database Concepts and Technologies I",
-       "Data Structures"
-
-
-
+List<String> courses = [
+  "Artificial Intelligence",
+  "Computer Architecture",
+  "Introduction To Electronic",
+  "Introduction To Structured Programming Design",
+  "Circuit Theory",
+  "Introduction To Economics",
+  "Discrete Mathematics",
+  "Computer Graphics",
+  "Database Concepts and Technologies I",
+  "Data Structures"
 ];
 List<String> students = [
   "Aardhya",
@@ -217,7 +213,7 @@ List attendencecolor = [
 //  0, /*Absent*/    1, /*Present*/    2 /*Absent*/
 String semesterdropdownValue = semesters[0];
 String schooldropdownValue = school[0];
-String subjectdropdownValue = subject[0];
+String courseDropdownValue = courses[0];
 String yeardropdownValue = collegeYear[0];
 String programdropdownValue = programmes[0];
 
@@ -225,6 +221,6 @@ Map<String, String> values = {
   programdropdownValue: "MBA",
   semesterdropdownValue: "1",
   schooldropdownValue: "SCSIT",
-  subjectdropdownValue: "Artificial Intelegence",
+  courseDropdownValue: "Artificial Intelegence",
   yeardropdownValue: "3rd",
 };

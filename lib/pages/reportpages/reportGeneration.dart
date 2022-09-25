@@ -67,8 +67,8 @@ class _ReportGenerationState extends State<ReportGeneration> {
 
             // SizedBox(height: 20),
             Dropdown(
-                dropdownValue: subjectdropdownValue,
-                values: subject,
+                dropdownValue: courseDropdownValue,
+                values: courses,
                 hint: "Subject"),
 
             Row(

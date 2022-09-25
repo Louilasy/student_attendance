@@ -23,7 +23,7 @@ Widget dropdownButton(
         break;
 
       case "Subject":
-        subjectdropdownValue = dropdownValue!;
+        courseDropdownValue = dropdownValue!;
         break;
       default:
     }
@@ -123,7 +123,7 @@ class _DropdownState extends State<Dropdown> {
         break;
 
       case "Subject":
-        subjectdropdownValue = dropdownValue;
+        courseDropdownValue = dropdownValue;
         break;
 
       default:

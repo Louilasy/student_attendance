@@ -70,7 +70,7 @@ class Attendance {
   final String userId;
   final String year;
   final DateTime createdAt;
-  final int semester;
+  final String semester;
   final String course;
   bool isActive;
   Attendance({
@@ -87,7 +87,7 @@ class Attendance {
           userId: json['userId']! as String,
           year: json['year']! as String,
           createdAt: DateTime.parse(json['createdAt']! as String),
-          semester: json['semester']! as int,
+          semester: json['semester']! as String,
           course: json['course']! as String,
           isActive: json['isActive']! as bool,
         );
@@ -98,6 +98,7 @@ class Attendance {
       'year': year,
       'createdAt': createdAt.toIso8601String(),
       'course': course,
+      'semester': semester,
       'isActive': isActive,
     };
   }

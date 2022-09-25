@@ -23,7 +23,7 @@ class UserPrefrences {
       email: facultiesEmailID[0],
       phoneNo: phoneNo[0],
       departmentId: facultiesID[0],
-      course: subject[0],
+      course: courses[0],
     ),
     Department(
       imagePath: "https://miro.medium.com/max/1400/0*qfJWOn_IjKoc305B.jpg"
@@ -33,7 +33,7 @@ class UserPrefrences {
       email: facultiesEmailID[0],
       phoneNo: phoneNo[0],
       departmentId: facultiesID[0],
-      course: subject[0],
+      course: courses[0],
     ),
     Department(
       imagePath: "https://miro.medium.com/max/1400/0*qfJWOn_IjKoc305B.jpg"
@@ -43,7 +43,7 @@ class UserPrefrences {
       email: facultiesEmailID[0],
       phoneNo: phoneNo[0],
       departmentId: facultiesID[0],
-      course: subject[0],
+      course: courses[0],
     ),
     Department(
       imagePath: "https://miro.medium.com/max/1400/0*qfJWOn_IjKoc305B.jpg"
@@ -53,7 +53,7 @@ class UserPrefrences {
       email: facultiesEmailID[0],
       phoneNo: phoneNo[0],
       departmentId: facultiesID[0],
-      course: subject[0],
+      course: courses[0],
     ),
     Department(
       imagePath: "https://miro.medium.com/max/1400/0*qfJWOn_IjKoc305B.jpg"
@@ -63,7 +63,7 @@ class UserPrefrences {
       email: facultiesEmailID[0],
       phoneNo: phoneNo[0],
       departmentId: facultiesID[0],
-      course: subject[0],
+      course: courses[0],
     ),
     Department(
       imagePath: "https://miro.medium.com/max/1400/0*qfJWOn_IjKoc305B.jpg"
@@ -73,7 +73,7 @@ class UserPrefrences {
       email: facultiesEmailID[0],
       phoneNo: phoneNo[0],
       departmentId: facultiesID[0],
-      course: subject[0],
+      course: courses[0],
     ),
     Department(
       imagePath: "https://miro.medium.com/max/1400/0*qfJWOn_IjKoc305B.jpg"
@@ -83,7 +83,7 @@ class UserPrefrences {
       email: facultiesEmailID[0],
       phoneNo: phoneNo[0],
       departmentId: facultiesID[0],
-      course: subject[0],
+      course: courses[0],
     ),
     Department(
       imagePath: "https://miro.medium.com/max/1400/0*qfJWOn_IjKoc305B.jpg"
@@ -93,7 +93,7 @@ class UserPrefrences {
       email: facultiesEmailID[0],
       phoneNo: phoneNo[0],
       departmentId: facultiesID[0],
-      course: subject[0],
+      course: courses[0],
     ),
   ];
 

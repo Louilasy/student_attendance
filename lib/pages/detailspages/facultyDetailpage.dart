@@ -106,7 +106,7 @@ class _FacultyDetailsPageState extends State<FacultyDetailsPage> {
                         ],
                       ),
                       Text(
-                        "Subject : " + subject[0],
+                        "Subject : " + courses[0],
                         style: TextStyle(color: Colors.grey, fontSize: 17.0),
                       ),
                     ],

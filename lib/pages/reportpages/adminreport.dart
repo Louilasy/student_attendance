@@ -13,7 +13,7 @@ class AdminReport extends StatefulWidget {
 class _AdminReportState extends State<AdminReport> {
   Widget build(BuildContext context) {
     String programdropdownValue = programmes[0];
-    String subjectdropdownValue = subject[0];
+    String subjectdropdownValue = courses[0];
     String schooldropdownValue = school[0];
     String semdropdownValue = semesters[0];
     String yeardropdownValue = collegeYear[0];
@@ -72,7 +72,7 @@ class _AdminReportState extends State<AdminReport> {
                 ),
                 Dropdown(
                     dropdownValue: subjectdropdownValue,
-                    values: subject,
+                    values: courses,
                     hint: "Subject"),
                 SizedBox(
                   height: 20,

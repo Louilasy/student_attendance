@@ -82,8 +82,8 @@ class _TakeAttendencePageState extends State<TakeAttendencePage> {
                 height: 20,
               ),
               Dropdown(
-                  dropdownValue: subjectdropdownValue,
-                  values: subject,
+                  dropdownValue: courseDropdownValue,
+                  values: courses,
                   hint: "Subject"),
               SizedBox(
                 height: 30,
@@ -154,7 +154,7 @@ class _TakeAttendencePageState extends State<TakeAttendencePage> {
                               Center(
                                   child: Expanded(
                                       child: Text(
-                                          "Subject : $subjectdropdownValue")))
+                                          "Subject : $courseDropdownValue")))
                             ],
                           ),
                         ),
@@ -187,8 +187,8 @@ class _TakeAttendencePageState extends State<TakeAttendencePage> {
                                         userId: 'kljkljlkj',
                                         year: '2022',
                                         createdAt: DateTime.now(),
-                                        semester: 1,
-                                        course: 'course 3',
+                                        semester: semesterdropdownValue,
+                                        course: courseDropdownValue,
                                       ));
                                       log(selectedDate.toIso8601String());
                                     }
