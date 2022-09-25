@@ -1,4 +1,4 @@
-import 'package:student_attendance/model/userDetailModel.dart';
+import 'package:student_attendance/models/userDetailModel.dart';
 import 'package:student_attendance/pages/bottomNavBar.dart';
 import 'package:student_attendance/widgets/editbuttonWidget.dart';
 import 'package:student_attendance/pages/detailspages/facultyDetailpage.dart';

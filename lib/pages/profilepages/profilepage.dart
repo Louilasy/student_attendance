@@ -2,7 +2,7 @@ import 'package:student_attendance/pages/profilepages/adminPage.dart';
 import 'package:student_attendance/pages/editpages/changePasswordPage.dart';
 import 'package:path/path.dart';
 
-import 'package:student_attendance/model/userDetailModel.dart';
+import 'package:student_attendance/models/userDetailModel.dart';
 import 'package:student_attendance/pages/bottomNavBar.dart';
 import 'package:student_attendance/pages/editpages/editProfilePages.dart';
 import 'package:student_attendance/widgets/editbuttonWidget.dart';

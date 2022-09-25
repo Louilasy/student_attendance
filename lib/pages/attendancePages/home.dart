@@ -75,8 +75,7 @@ class _HomeState extends State<Home> {
                         onPressed: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    AttendenceDropdownpage2()),
+                                builder: (context) => TakeAttendencePage()),
                           );
                         },
                         child: Text("Next"),

@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:student_attendance/model/userDetailModel.dart';
+import 'package:student_attendance/models/userDetailModel.dart';
 import 'package:student_attendance/utils/names.dart';
 import 'package:student_attendance/widgets/dropDownWidget.dart';
 
@@ -123,14 +123,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               password: password,
                             );
 
-                            DocumentReference<UniUser> newUserDetailsRef =
-                                await createUserDetails(credential.user!);
-
-                            if (newUserDetailsRef == Null) {
-                              log('User detail creation successful.');
-                            } else {
-                              log('User detail creation failed.');
-                            }
+                            // DocumentReference<UniUser> newUserDetailsRef =
+                            await createUserDetails(credential.user!);
                           } on FirebaseAuthException catch (e) {
                             if (e.code == 'weak-password') {
                               print('The password provided is too weak.');
@@ -165,26 +159,25 @@ class _RegistrationPageState extends State<RegistrationPage> {
     );
   }
 
+  Future<DocumentReference<UniUser>> createUserDetails(User user) {
+    // user.metadata.
+    var newUser = UniUser(
+      userId: user.uid,
+      username: user.uid,
+      email: user.email!,
+      programme: programdropdownValue,
+      userRole: UserRole.Student,
+    );
+    log(newUser.userId);
+    log(jsonEncode(newUser.toJson()));
+
+    final usersRef = FirebaseFirestore.instance
+        .collection('users')
+        .withConverter<UniUser>(
+          fromFirestore: (snapshot, _) => UniUser.fromJson(snapshot.data()!),
+          toFirestore: (uniUser, _) => uniUser.toJson(),
+        );
+    return usersRef.add(newUser);
+  }
   //void setState(Null Function() param0) {}
-}
-
-Future<DocumentReference<UniUser>> createUserDetails(User user) {
-  var newUser = UniUser(
-    userId: user.uid,
-    username: user.uid,
-    email: user.email!,
-    semester: semesterdropdownValue,
-    year: yeardropdownValue,
-    programme: programdropdownValue,
-    userRole: UserRole.Student,
-  );
-  log(newUser.userId);
-  log(jsonEncode(newUser.toJson()));
-
-  final usersRef =
-      FirebaseFirestore.instance.collection('users').withConverter<UniUser>(
-            fromFirestore: (snapshot, _) => UniUser.fromJson(snapshot.data()!),
-            toFirestore: (movie, _) => movie.toJson(),
-          );
-  return usersRef.add(newUser);
 }

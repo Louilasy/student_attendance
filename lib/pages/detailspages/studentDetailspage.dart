@@ -141,26 +141,26 @@ class _StudentDetailsPageState extends State<StudentDetailsPage> {
                       ],
                     ),
                   ),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Text(
-                          "Semester : " + studentvar[index].semester,
-                          style: TextStyle(fontSize: 13),
-                        )
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Text(
-                          "Year : " + studentvar[index].year,
-                          style: TextStyle(fontSize: 13),
-                        ),
-                      ],
-                    ),
-                  ),
+                  // Expanded(
+                  //   child: Column(
+                  //     children: [
+                  //       Text(
+                  //         "Semester : " + studentvar[index].semester,
+                  //         style: TextStyle(fontSize: 13),
+                  //       )
+                  //     ],
+                  //   ),
+                  // ),
+                  // Expanded(
+                  //   child: Column(
+                  //     children: [
+                  //       Text(
+                  //         "Year : " + studentvar[index].year,
+                  //         style: TextStyle(fontSize: 13),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                 ],
               ),
               SizedBox(
