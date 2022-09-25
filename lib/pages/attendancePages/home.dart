@@ -1,4 +1,4 @@
-import 'package:student_attendance/pages/attendancePages/attendancedropdownpage2.dart';
+import 'package:student_attendance/pages/attendancePages/take_attendance.dart';
 import 'package:student_attendance/widgets/dropDownWidget.dart';
 import 'package:student_attendance/utils/names.dart';
 import 'package:flutter/material.dart';
