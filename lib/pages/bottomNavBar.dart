@@ -26,7 +26,7 @@ BottomNavigationBar buildAdminBottomNavBar(
     int currentindex, void Function(int) callbackFun) {
   return BottomNavigationBar(
     type: BottomNavigationBarType.fixed,
-    backgroundColor: primaryColor,
+    backgroundColor: Colors.green,
     currentIndex: currentindex,
     selectedItemColor: Colors.white,
     unselectedItemColor: Colors.white70,

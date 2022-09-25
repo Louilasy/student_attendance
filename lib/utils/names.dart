@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-List<String> programmes = ["B.Tech", "MBA", "BBA", "B.Com"];
+List<String> programmes = ["B.Sc", "MBA", "B.A", "B.Com"];
 List<String> school = [
   "SCSIT",
   "SAME",
@@ -18,10 +18,20 @@ List<String> semesters = [
 ];
 
 List<String> subject = [
-  "Artificial Intelegence",
-  "TOC",
-  "CCS",
-  "Machine Learning"
+       "Artificial Intelligence",
+       "Computer Architecture",
+       "Introduction To Electronic",
+       "Introduction To Structured Programming Design",
+       "Circuit Theory",
+       "Discrete Mathematics",
+       "Introduction To Economics",
+       "Discrete Mathematics",
+       "Computer Graphics",
+       "Database Concepts and Technologies I",
+       "Data Structures"
+
+
+
 ];
 List<String> students = [
   "Aardhya",
