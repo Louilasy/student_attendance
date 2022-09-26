@@ -1,6 +1,7 @@
 import 'package:student_attendance/pages/loginpages/logout.dart';
 import 'package:student_attendance/pages/profilepages/adminPage.dart';
 import 'package:student_attendance/pages/attendancePages/home.dart';
+import 'package:student_attendance/pages/detailspages/facultyScreen.dart';
 import 'package:student_attendance/pages/profilepages/profilepage.dart';
 import 'package:student_attendance/pages/reportpages/adminreport.dart';
 import 'package:student_attendance/pages/reportpages/reportGeneration.dart';

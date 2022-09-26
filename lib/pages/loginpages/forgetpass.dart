@@ -20,7 +20,7 @@ class _ForgetPassState extends State<ForgetPass> {
           padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
-              Text("Enter Your Regestered Email for otp verification",style: TextStyle(fontSize: 20),),
+              Text("Enter Your Registered Email for otp verification",style: TextStyle(fontSize: 20),),
         SizedBox(height: 20,),
         TextField(
                         decoration: InputDecoration(
