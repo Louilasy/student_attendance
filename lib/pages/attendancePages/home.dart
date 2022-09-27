@@ -49,13 +49,13 @@ class _HomeState extends State<Home> {
                       SizedBox(
                         height: 20,
                       ),
-                      Dropdown(
-                          dropdownValue: schooldropdownValue,
-                          hint: "School",
-                          values: school),
-                      SizedBox(
-                        height: 20,
-                      ),
+                      // Dropdown(
+                      //     dropdownValue: schooldropdownValue,
+                      //     hint: "School",
+                      //     values: school),
+                      // SizedBox(
+                      //   height: 20,
+                      // ),
 
                       SizedBox(
                         height: 20,

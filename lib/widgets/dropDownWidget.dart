@@ -11,9 +11,9 @@ Widget dropdownButton(
       case "Program":
         programdropdownValue = dropdownValue!;
         break;
-      case "School":
-        schooldropdownValue = dropdownValue!;
-        break;
+      // case "School":
+      //   dropdownValue = dropdownValue!;school
+      //   break;
 
       case "Year":
         yeardropdownValue = dropdownValue!;
@@ -112,9 +112,9 @@ class _DropdownState extends State<Dropdown> {
       case "Program":
         programdropdownValue = dropdownValue;
         break;
-      case "School":
-        schooldropdownValue = dropdownValue;
-        break;
+      // case "School":
+      //   schooldropdownValue = dropdownValue;
+      //   break;
       case "Year":
         yeardropdownValue = dropdownValue;
         break;

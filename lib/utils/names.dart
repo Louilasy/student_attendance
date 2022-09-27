@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-List<String> programmes = ["B.Sc", "MBA", "B.A", "B.Com"];
-List<String> school = [
-  "SCSIT",
-  "SAME",
-];
+List<String> programmes = ["B.Sc Computer Science", "MSA Computer Science"];
+// List<String> school = [
+//   "SCSIT",
+//   "SAME",
+// ];
 // List<String> Year = ["2021", "2022"];
 List<String> semesters = [
   "1",
@@ -212,7 +212,7 @@ List attendencecolor = [
 ];
 //  0, /*Absent*/    1, /*Present*/    2 /*Absent*/
 String semesterdropdownValue = semesters[0];
-String schooldropdownValue = school[0];
+// String schooldropdownValue = school[0];
 String courseDropdownValue = courses[0];
 String yeardropdownValue = collegeYear[0];
 String programdropdownValue = programmes[0];
@@ -220,7 +220,7 @@ String programdropdownValue = programmes[0];
 Map<String, String> values = {
   programdropdownValue: "MBA",
   semesterdropdownValue: "1",
-  schooldropdownValue: "SCSIT",
+  // schooldropdownValue: "SCSIT",
   courseDropdownValue: "Artificial Intelegence",
   yeardropdownValue: "3rd",
 };

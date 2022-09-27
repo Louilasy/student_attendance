@@ -6,6 +6,7 @@ import 'package:student_attendance/pages/bottomNavBar.dart';
 import 'package:student_attendance/pages/loginpages/forgetpass.dart';
 import 'package:flutter/material.dart';
 import 'package:student_attendance/pages/loginpages/registrationPage.dart';
+import 'package:student_attendance/utils/helpers.dart';
 
 // ignore: must_be_immutable
 class LoginPage extends StatefulWidget {
@@ -78,6 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       Padding(padding: EdgeInsets.only(top: 40)),
                       TextField(
+                        keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
@@ -147,34 +149,40 @@ class _LoginPageState extends State<LoginPage> {
                       Center(
                         child: ElevatedButton(
                           onPressed: () async {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                  builder: (context) => LoginNavScreen()),
-                            );
-                            // UserCredential credential;
-                            // try {
-                            //   credential = await FirebaseAuth.instance
-                            //       .signInWithEmailAndPassword(
-                            //     email: email,
-                            //     password: password,
-                            //   );
-                            //   Navigator.of(context).push(
-                            //     MaterialPageRoute(
-                            //         builder: (context) => LoginNavScreen()),
-                            //   );
-                            // } on FirebaseAuthException catch (e) {
-                            //   if (e.code == 'user-not-found') {
-                            //     log('No user found for that email.');
-                            //   } else if (e.code == 'wrong-password') {
-                            //     log('Wrong password provided for that user.');
-                            //   }
-                            // } catch (e) {
-                            //   log(e.toString());
-                            // }
+                            setState(() {
+                              isLoading = true;
+                            });
+                            // Navigator.of(context).push(
+                            //   MaterialPageRoute(
+                            //       builder: (context) => LoginNavScreen()),
+                            // );
 
-                            // setState(() {
-                            //   isLoading = true;
-                            // });
+                            try {
+                              await FirebaseAuth.instance
+                                  .signInWithEmailAndPassword(
+                                email: email,
+                                password: password,
+                              );
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                    builder: (context) => LoginNavScreen()),
+                              );
+                            } on FirebaseAuthException catch (e) {
+                              if (e.code == 'user-not-found') {
+                                showSnackBarMessage(
+                                    context, 'No user found for that email.');
+                              } else if (e.code == 'wrong-password') {
+                                showSnackBarMessage(context,
+                                    'Wrong password provided for that user.');
+                              }
+                            } catch (e) {
+                              showSnackBarMessage(
+                                  context, 'An Unknown error occured');
+                            }
+
+                            setState(() {
+                              isLoading = false;
+                            });
                           },
                           child: isLoading
                               ? CircularProgressIndicator(

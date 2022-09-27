@@ -26,7 +26,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Faculty Profile"),
+        title: Text("Profile"),
         centerTitle: true,
       ),
       body: Padding(

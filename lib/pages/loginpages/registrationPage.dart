@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:student_attendance/models/userDetailModel.dart';
+import 'package:student_attendance/utils/helpers.dart' show showSnackBarMessage;
 import 'package:student_attendance/utils/names.dart';
 import 'package:student_attendance/widgets/dropDownWidget.dart';
 
@@ -62,6 +63,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     ),
                     Padding(padding: EdgeInsets.only(top: 10)),
                     TextField(
+                      keyboardType: TextInputType.emailAddress,
                       onChanged: (newValue) {
                         email = newValue;
                       },
@@ -123,17 +125,24 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               password: password,
                             );
 
-                            // DocumentReference<UniUser> newUserDetailsRef =
-                            await createUserDetails(credential.user!);
+                            DocumentReference<UniUser> newUserDetailsRef =
+                                await createUserDetails(credential.user!);
+
+                            if (newUserDetailsRef.id.isNotEmpty) {
+                              showSnackBarMessage(
+                                  context, 'User Registration Successfull');
+                            }
                           } on FirebaseAuthException catch (e) {
                             if (e.code == 'weak-password') {
-                              print('The password provided is too weak.');
+                              showSnackBarMessage(context,
+                                  'The password provided is too weak.');
                             } else if (e.code == 'email-already-in-use') {
-                              print(
+                              showSnackBarMessage(context,
                                   'The account already exists for that email.');
                             }
                           } catch (e) {
-                            print(e);
+                            showSnackBarMessage(
+                                context, 'An Unknown error occured');
                           }
                         },
                         child: Text(

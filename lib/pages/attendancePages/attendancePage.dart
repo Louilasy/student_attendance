@@ -21,7 +21,7 @@ class _AttendencePageState extends State<AttendencePage> {
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(),
-        title: Text("Attendence"),
+        title: Text("Take Attendence"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

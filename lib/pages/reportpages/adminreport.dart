@@ -14,7 +14,7 @@ class _AdminReportState extends State<AdminReport> {
   Widget build(BuildContext context) {
     String programdropdownValue = programmes[0];
     String subjectdropdownValue = courses[0];
-    String schooldropdownValue = school[0];
+    // String schooldropdownValue = school[0];
     String semdropdownValue = semesters[0];
     String yeardropdownValue = collegeYear[0];
 
@@ -49,13 +49,13 @@ class _AdminReportState extends State<AdminReport> {
                 SizedBox(
                   height: 20,
                 ),
-                Dropdown(
-                    dropdownValue: schooldropdownValue,
-                    values: school,
-                    hint: "School"),
-                SizedBox(
-                  height: 20,
-                ),
+                // Dropdown(
+                //     dropdownValue: schooldropdownValue,
+                //     values: school,
+                //     hint: "School"),
+                // SizedBox(
+                //   height: 20,
+                // ),
                 Dropdown(
                     dropdownValue: yeardropdownValue,
                     values: collegeYear,

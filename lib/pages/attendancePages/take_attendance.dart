@@ -1,11 +1,13 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:student_attendance/models/userDetailModel.dart';
 import 'package:student_attendance/services/local_auth_api.dart';
 import 'package:student_attendance/widgets/dropDownWidget.dart';
 import 'package:student_attendance/utils/names.dart';
 import 'package:flutter/material.dart';
+import 'package:student_attendance/widgets/getData.dart';
 
 class TakeAttendencePage extends StatefulWidget {
   const TakeAttendencePage({Key? key}) : super(key: key);
@@ -17,6 +19,7 @@ class TakeAttendencePage extends StatefulWidget {
 class _TakeAttendencePageState extends State<TakeAttendencePage> {
   DateTime selectedDate = DateTime.now();
   bool deviceHasBiometrics = false;
+  final user = FirebaseAuth.instance.currentUser;
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -41,7 +44,7 @@ class _TakeAttendencePageState extends State<TakeAttendencePage> {
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(),
-        title: Text("Attendence"),
+        title: Text("Take Attendence"),
       ),
       body: ListView(
         physics: BouncingScrollPhysics(),
@@ -184,22 +187,26 @@ class _TakeAttendencePageState extends State<TakeAttendencePage> {
                                                 attendance.toJson(),
                                           );
                                       attendanceRef.add(Attendance(
-                                        userId: 'kljkljlkj',
-                                        year: '2022',
+                                        userId: user!.uid,
+                                        year: yeardropdownValue,
                                         createdAt: DateTime.now(),
                                         semester: semesterdropdownValue,
                                         course: courseDropdownValue,
                                       ));
-                                      log(selectedDate.toIso8601String());
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                ShowAttendance(user!.uid)),
+                                      );
                                     }
                                   },
-                                  child: Text("Take Attendence")),
+                                  child: Text("Take Attendance")),
                               ElevatedButton(
                                   onPressed: () async {
                                     showDialog(
                                       context: context,
                                       builder: (context) => AlertDialog(
-                                        title: Text('Availability'),
+                                        title: Text('Biometrics Availability'),
                                         content: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,

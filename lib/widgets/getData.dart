@@ -1,35 +1,92 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:student_attendance/models/userDetailModel.dart';
 
-class GetData extends StatelessWidget {
-  final String documentId;
+class ShowAttendance extends StatelessWidget {
+  final String userId;
 
-  GetData(this.documentId);
+  ShowAttendance(this.userId);
 
   @override
   Widget build(BuildContext context) {
-    CollectionReference attendance = FirebaseFirestore.instance.collection('attendance');
+    Query<Attendance> attendance = FirebaseFirestore.instance
+        .collection('attendance')
+        .withConverter<Attendance>(
+          fromFirestore: (snapshot, _) => Attendance.fromJson(snapshot.data()!),
+          toFirestore: (attendance, _) => attendance.toJson(),
+        )
+        .where('userId', isEqualTo: userId);
 
-    return FutureBuilder<DocumentSnapshot>(
-    future: attendance.doc(documentId).get(),
-      builder:
-          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: BackButton(),
+        title: Text('Attendance Data'),
+      ),
+      body: FutureBuilder<QuerySnapshot<Attendance>>(
+        future: attendance.get(),
+        builder: (BuildContext context,
+            AsyncSnapshot<QuerySnapshot<Attendance>> snapshot) {
+          List<Widget> columnChildren = [
+            Text("loading"),
+            CircularProgressIndicator(value: 30.0),
+          ];
+          if (snapshot.hasError) {
+            columnChildren = [
+              Text("Something went wrong"),
+              Icon(
+                Icons.error,
+                color: Colors.red,
+              ),
+            ];
+          }
 
-        if (snapshot.hasError) {
-          return Text("Something went wrong");
-        }
+          if (snapshot.hasData && snapshot.data!.size == 0) {
+            columnChildren = [
+              Text("No Data Found"),
+              Icon(
+                Icons.dangerous,
+                color: Colors.red,
+              ),
+            ];
+          }
 
-        if (snapshot.hasData && !snapshot.data!.exists) {
-          return Text("Document does not exist");
-        }
-
-        if (snapshot.connectionState == ConnectionState.done) {
-          Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
-          return Text("Full Name: ${data['full_name']} ${data['last_name']}");
-        }
-
-        return Text("loading");
-      },
+          if (snapshot.connectionState == ConnectionState.done) {
+            List<QueryDocumentSnapshot<Attendance>> data = snapshot.data!.docs;
+            List<Attendance> myList = [];
+            data.forEach((element) {
+              myList.add(element.data());
+            });
+            columnChildren = [
+              Expanded(
+                child: ListView.builder(
+                    physics: ScrollPhysics(),
+                    itemCount: myList.length,
+                    itemBuilder: (context, index) {
+                      var year = myList[index].year;
+                      var semester = myList[index].semester;
+                      var course = myList[index].course;
+                      return Padding(
+                        padding: EdgeInsets.all(0.0),
+                        child: Card(
+                          child: ListTile(
+                            leading: Text('SEM $semester:'),
+                            title: Text(myList[index].createdAt.toString()),
+                            subtitle: Text(course),
+                            trailing: Text(' - YEAR $year'),
+                          ),
+                        ),
+                      );
+                    }),
+              ),
+            ];
+          }
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: columnChildren,
+          );
+        },
+      ),
     );
   }
 }
