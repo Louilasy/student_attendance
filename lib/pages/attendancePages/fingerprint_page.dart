@@ -105,8 +105,5 @@ class FingerprintPage extends StatelessWidget {
           style: TextStyle(fontSize: 20),
         ),
         onPressed: onClicked,
-          bool isLocationServiceEnabled  = await Geolocator.isLocationServiceEnabled(),
-       double bearing = Geolocator.bearingBetween(52.2165157, 6.9437819, 52.3546274, 4.8285838)
-
       );
 }
