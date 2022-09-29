@@ -8,6 +8,9 @@ import 'package:student_attendance/widgets/dropDownWidget.dart';
 import 'package:student_attendance/utils/names.dart';
 import 'package:flutter/material.dart';
 import 'package:student_attendance/widgets/getData.dart';
+import 'package:geolocator/geolocator.dart';
+
+import 'package:geolocator/geolocator.dart';
 
 class TakeAttendencePage extends StatefulWidget {
   const TakeAttendencePage({Key? key}) : super(key: key);
@@ -203,6 +206,50 @@ class _TakeAttendencePageState extends State<TakeAttendencePage> {
                                   child: Text("Take Attendance")),
                               ElevatedButton(
                                   onPressed: () async {
+                                    bool serviceEnabled;
+                                    LocationPermission permission;
+                                    bool isLocationServiceEnabled =
+                                        await Geolocator
+                                            .isLocationServiceEnabled();
+                                    serviceEnabled = await Geolocator
+                                        .isLocationServiceEnabled();
+                                    if (!serviceEnabled) {
+                                      return Future.error(
+                                          'Location services are disabled.');
+                                    }
+                                    permission =
+                                        await Geolocator.checkPermission();
+                                    if (permission ==
+                                        LocationPermission.denied) {
+                                      permission =
+                                          await Geolocator.requestPermission();
+                                      if (permission ==
+                                          LocationPermission.denied) {
+                                        return Future.error(
+                                            'Location permissions are denied');
+                                      }
+                                    }
+                                    If(isLocationServiceEnabled) {
+                                      return Geolocator.getCurrentPosition();
+                                    }
+
+                                    if (permission ==
+                                        LocationPermission.deniedForever) {
+                                      return Future.error(
+                                          'Location permissions are permanently denied, we cannot request permissions.');
+                                    }
+
+                                    Position position =
+                                        await Geolocator.getCurrentPosition(
+                                            desiredAccuracy:
+                                                LocationAccuracy.high);
+                                    double bearing = Geolocator.bearingBetween(
+                                        6.6730162,
+                                        -1.5668553,
+                                        6.6728533,
+                                        -1.5668316);
+                                    Geolocator.getCurrentPosition() == bearing;
+
                                     showDialog(
                                       context: context,
                                       builder: (context) => AlertDialog(

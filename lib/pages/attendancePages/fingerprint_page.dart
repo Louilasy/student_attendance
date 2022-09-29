@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:student_attendance/services/local_auth_api.dart';
+import 'package:geolocator/geolocator.dart';
+
+Future<Position> _determinePosition() async {
+  bool serviceEnabled;
+  LocationPermission permission;
+
+  serviceEnabled = await Geolocator.isLocationServiceEnabled();
+  if (!serviceEnabled) {
+
+    return Future.error('Location services are disabled.');
+  }
+  return await Geolocator.getCurrentPosition();
+}
 
 class FingerprintPage extends StatelessWidget {
   @override
@@ -92,5 +105,8 @@ class FingerprintPage extends StatelessWidget {
           style: TextStyle(fontSize: 20),
         ),
         onPressed: onClicked,
+          bool isLocationServiceEnabled  = await Geolocator.isLocationServiceEnabled(),
+       double bearing = Geolocator.bearingBetween(52.2165157, 6.9437819, 52.3546274, 4.8285838)
+
       );
 }
