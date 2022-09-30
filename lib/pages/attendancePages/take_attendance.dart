@@ -1,15 +1,14 @@
 import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:student_attendance/models/userDetailModel.dart';
 import 'package:student_attendance/services/local_auth_api.dart';
+import 'package:student_attendance/utils/geoloacation.dart';
+import 'package:student_attendance/utils/helpers.dart';
 import 'package:student_attendance/widgets/dropDownWidget.dart';
 import 'package:student_attendance/utils/names.dart';
 import 'package:flutter/material.dart';
 import 'package:student_attendance/widgets/getData.dart';
-import 'package:geolocator/geolocator.dart';
-
 import 'package:geolocator/geolocator.dart';
 
 class TakeAttendencePage extends StatefulWidget {
@@ -171,85 +170,40 @@ class _TakeAttendencePageState extends State<TakeAttendencePage> {
                             children: [
                               ElevatedButton(
                                   onPressed: () async {
-                                    final isAuthenticated =
-                                        await LocalAuthApi.authenticate();
-                                    if (isAuthenticated) {
-                                      // Navigator.of(context).push(
-                                      //   MaterialPageRoute(
-                                      //       builder: (context) =>
-                                      //           AttendencePage()),
-                                      // );
-                                      final attendanceRef = FirebaseFirestore
-                                          .instance
-                                          .collection('attendance')
-                                          .withConverter<Attendance>(
-                                            fromFirestore: (snapshot, _) =>
-                                                Attendance.fromJson(
-                                                    snapshot.data()!),
-                                            toFirestore: (attendance, _) =>
-                                                attendance.toJson(),
-                                          );
-                                      attendanceRef.add(Attendance(
-                                        userId: user!.uid,
-                                        year: yeardropdownValue,
-                                        createdAt: DateTime.now(),
-                                        semester: semesterdropdownValue,
-                                        course: courseDropdownValue,
-                                      ));
-                                      Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                ShowAttendance(user!.uid)),
-                                      );
-                                    }
+                                    if (await isWithinGeolocation()) {
+                                      final isAuthenticated =
+                                          await LocalAuthApi.authenticate();
+                                      if (isAuthenticated) {
+                                        final attendanceRef = FirebaseFirestore
+                                            .instance
+                                            .collection('attendance')
+                                            .withConverter<Attendance>(
+                                              fromFirestore: (snapshot, _) =>
+                                                  Attendance.fromJson(
+                                                      snapshot.data()!),
+                                              toFirestore: (attendance, _) =>
+                                                  attendance.toJson(),
+                                            );
+                                        attendanceRef.add(Attendance(
+                                          userId: user!.uid,
+                                          year: yeardropdownValue,
+                                          createdAt: DateTime.now(),
+                                          semester: semesterdropdownValue,
+                                          course: courseDropdownValue,
+                                        ));
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ShowAttendance(user!.uid)),
+                                        );
+                                      }
+                                    } else
+                                      showSnackBarMessage(
+                                          context, 'You are not in class');
                                   },
                                   child: Text("Take Attendance")),
                               ElevatedButton(
                                   onPressed: () async {
-                                    bool serviceEnabled;
-                                    LocationPermission permission;
-                                    bool isLocationServiceEnabled =
-                                        await Geolocator
-                                            .isLocationServiceEnabled();
-                                    serviceEnabled = await Geolocator
-                                        .isLocationServiceEnabled();
-                                    if (!serviceEnabled) {
-                                      return Future.error(
-                                          'Location services are disabled.');
-                                    }
-                                    permission =
-                                        await Geolocator.checkPermission();
-                                    if (permission ==
-                                        LocationPermission.denied) {
-                                      permission =
-                                          await Geolocator.requestPermission();
-                                      if (permission ==
-                                          LocationPermission.denied) {
-                                        return Future.error(
-                                            'Location permissions are denied');
-                                      }
-                                    }
-                                    If(isLocationServiceEnabled) {
-                                      return Geolocator.getCurrentPosition();
-                                    }
-
-                                    if (permission ==
-                                        LocationPermission.deniedForever) {
-                                      return Future.error(
-                                          'Location permissions are permanently denied, we cannot request permissions.');
-                                    }
-
-                                    Position position =
-                                        await Geolocator.getCurrentPosition(
-                                            desiredAccuracy:
-                                                LocationAccuracy.high);
-                                    double bearing = Geolocator.bearingBetween(
-                                        6.6730162,
-                                        -1.5668553,
-                                        6.6728533,
-                                        -1.5668316);
-                                    Geolocator.getCurrentPosition() == bearing;
-
                                     showDialog(
                                       context: context,
                                       builder: (context) => AlertDialog(
@@ -284,6 +238,65 @@ class _TakeAttendencePageState extends State<TakeAttendencePage> {
 
   void checkBiometrics() async {
     deviceHasBiometrics = await LocalAuthApi.hasBiometrics();
+  }
+
+  Future<bool> isWithinGeolocation() async {
+    LocationPermission permission;
+    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled.');
+    }
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Location permissions are denied');
+      }
+    }
+    If(isLocationServiceEnabled) {
+      return Geolocator.getCurrentPosition();
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
+
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+
+    double distanceA = Geolocator.distanceBetween(
+      position.latitude,
+      position.longitude,
+      pointA.latitude,
+      pointA.longitude,
+    );
+
+    double distanceB = Geolocator.distanceBetween(
+      position.latitude,
+      position.longitude,
+      pointB.latitude,
+      pointB.longitude,
+    );
+
+    double distanceC = Geolocator.distanceBetween(
+      position.latitude,
+      position.longitude,
+      pointC.latitude,
+      pointC.longitude,
+    );
+
+    double effectiveDistance = Geolocator.distanceBetween(
+          pointA.latitude,
+          pointA.longitude,
+          pointC.latitude,
+          pointC.longitude,
+        ) /
+        2;
+
+    return (distanceA < effectiveDistance) ||
+        (distanceB < effectiveDistance) ||
+        (distanceC < effectiveDistance);
   }
 
   Widget buildText(String text, bool checked) => Container(

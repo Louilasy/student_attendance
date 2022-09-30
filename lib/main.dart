@@ -13,9 +13,10 @@ class myApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var themeData = ThemeData(
-        // canvasColor: primaryColor,
-        primarySwatch: primaryColor,
-        dividerColor: Colors.black);
+      // canvasColor: primaryColor,
+      primarySwatch: primaryColor,
+      dividerColor: Colors.black,
+    );
     // DE0000
     return MaterialApp(
       debugShowCheckedModeBanner: false,
